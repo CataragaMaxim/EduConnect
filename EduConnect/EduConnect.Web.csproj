@@ -344,6 +344,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EduConnect.BusinessLogic\EduConnect.BusinessLogic.csproj">
+      <Project>{b8ed1020-6cf3-4574-b607-24f9df8a4871}</Project>
+      <Name>EduConnect.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EduConnect.Domain\EduConnect.Domain.csproj">
+      <Project>{92874dee-b274-42db-a302-7e2b3a579580}</Project>
+      <Name>EduConnect.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
