@@ -1,0 +1,46 @@
+@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8" />
+     <title>EduConnect | @ViewBag.Title</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta content="Un sait gratuit pentru studiu usor si efectiv" name="description" />
+     <meta content="Coderthemes" name="author" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                                        
+     <!-- App favicon -->
+     <link rel="shortcut icon" href="~/Images/favicon.ico">
+
+     <!-- Bootstrap core CSS -->
+     @Styles.Render("~/bundles/bootstrap/css")
+
+     <!--Material Icon -->
+     @Styles.Render("~/bundles/materialdesignicons/css")
+
+     <!--pe-icon-7 Icon -->
+     @Styles.Render("~/bundles/peicon7stroke/css")
+
+     <!-- Custom  css -->
+     @Styles.Render("~/bundles/style/css")
+
+</head>
+
+<body>
+     <!-- Main view -->
+     @RenderBody()
+
+     <!-- javascript -->
+     @Scripts.Render("~/bundles/jquery/js")
+     @Scripts.Render("~/bundles/bootstrap/js")
+     @Scripts.Render("~/bundles/scrollspy/js")
+
+     <!-- counter js -->
+     @Scripts.Render("~/bundles/counter/js")
+
+     <!-- custom js -->
+     @Scripts.Render("~/bundles/app/js")
+
+     @RenderSection("scripts", required: false)
+</body>
+</html>
