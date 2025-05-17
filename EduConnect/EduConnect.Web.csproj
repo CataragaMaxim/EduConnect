@@ -489,6 +489,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Log.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Categ\Index.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
