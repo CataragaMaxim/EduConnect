@@ -1,0 +1,30 @@
+
+@{
+     Layout = "~/Views/Shared/_Layout_Log.cshtml";
+     ViewBag.Title = "Register";
+}
+
+@using System.Web.Optimization;
+@model EduConnect.Models.Reg.UserRegData
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Reg", "Register", FormMethod.Post))
+{
+     <div class="container">
+
+          @Html.LabelFor(u => u.Username)
+
+          @Html.TextBoxFor(u => u.Username)
+
+          @Html.LabelFor(u => u.Password)
+
+          @Html.TextBoxFor(u => u.Password)
+
+          @Html.LabelFor(u => u.Email)
+
+          @Html.TextBoxFor(u => u.Email)
+
+          <button type="submit">Register</button>
+     </div>
+}

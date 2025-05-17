@@ -1,0 +1,26 @@
+﻿
+@{
+     Layout = "~/Views/Shared/_Layout_Log.cshtml";
+     ViewBag.Title = "Auth";
+}
+
+@using System.Web.Optimization;
+@model EduConnect.Models.Auth.UserDataLogin
+
+<h2>Log in</h2>
+
+@using (Html.BeginForm("Auth", "Auth", FormMethod.Post))
+{
+     <div class="container">
+
+          @Html.LabelFor(u => u.Username)
+
+          @Html.TextBoxFor(u => u.Username)
+
+          @Html.LabelFor(u => u.Password)
+
+          @Html.TextBoxFor(u => u.Password)
+
+          <button type="submit">Login</button>
+     </div>
+}

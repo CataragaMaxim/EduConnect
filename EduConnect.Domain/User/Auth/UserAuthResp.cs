@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EduConnect.Helpers
+namespace EduConnect.Domain.User.Auth
 {
-    public class Class1
+    class UserAuthResp
     {
     }
 }

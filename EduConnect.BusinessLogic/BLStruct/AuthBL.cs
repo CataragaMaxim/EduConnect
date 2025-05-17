@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EduConnect.BusinessLogic
+namespace EduConnect.BusinessLogic.BLStruct
 {
-     public class SessionBL : UserApi, ISession
+     class AuthBL : UserApi, IAuth
      {
-          public ULoginResp UserLogin(ULoginData data)
+          public string UserAuthLogic(UserLoginDTO data)
           {
-               throw new NotImplementedException();
+               return UserAuthLogicAction(data);
           }
      }
 }

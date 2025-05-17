@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace EduConnect.BusinessLogic.Interfaces
 {
-     public interface ISession
+     public interface IAuth
      {
-          ULoginResp UserLogin(ULoginData data);
+          string UserAuthLogic(UserLoginDTO data);
      }
 }

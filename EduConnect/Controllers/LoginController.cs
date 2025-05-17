@@ -7,8 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EduConnect.Web.Models;
+using AutoMapper;
 
-namespace EduConnect.Controllers
+
+namespace EduConnect.Web.Controllers
 {
     public class LoginController : Controller
     {
@@ -22,7 +25,7 @@ namespace EduConnect.Controllers
         // GET: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(UserLogin login)
+        public ActionResult Index(Models.UserLogin login)
         {
             if (ModelState.IsValid)
             {

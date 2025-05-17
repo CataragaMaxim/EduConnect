@@ -1,4 +1,5 @@
-﻿using EduConnect.Domain.Entities.User;
+﻿using EduConnect.Domain.Entities.User.Reg;
+using EduConnect.Domain.User.Reg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace EduConnect.BusinessLogic.Interfaces
 {
-     public interface ISession
+     public interface IUser
      {
-          ULoginResp UserLogin(ULoginData data);
+          UserRegDataResp RegisterUserAction(RegDataActionDTO local);
      }
 }

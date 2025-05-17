@@ -35,6 +35,7 @@
       <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Entities\User\UserLoginDTO.cs" />
+    <Compile Include="User\Auth\UserAuthResp.cs" />
+    <Compile Include="User\Reg\RegDataActionDTO.cs" />
+    <Compile Include="User\Reg\UserRegDataResp.cs" />
+    <Compile Include="Entities\User\UDbTable.cs" />
     <Compile Include="Entities\User\ULoginData.cs" />
+    <Compile Include="Entities\User\ULoginResp.cs" />
+    <Compile Include="Enums\URole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,9 +61,7 @@
       <Name>EduConnect.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
