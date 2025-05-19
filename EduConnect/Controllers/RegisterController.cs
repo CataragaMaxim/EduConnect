@@ -35,7 +35,7 @@ namespace EduConnect.Controllers
 
                UserRegDataResp resp = _user.RegisterUserAction(local);
 
-               return null;
+               return RedirectToAction("Index","Home");
           }
      }
 }
