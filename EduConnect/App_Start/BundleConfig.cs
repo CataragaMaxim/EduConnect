@@ -32,8 +32,8 @@ namespace EduConnect.Web
 
 
                // Boostrap
-               bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
-				"~/Scripts/bootstrap.bundle.min.js"));
+               bundles.Add(new ScriptBundle("~/bundles/scrollspy/js").Include(
+                    "~/Scripts/bootstrap.bundle.min.js"));
 
                bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
                     "~/Scripts/jquery.min.js", "~/Scripts/jquery.easing.min.js"));
