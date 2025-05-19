@@ -1,4 +1,6 @@
-﻿using EduConnect.Domain.Entities.User.Reg;
+﻿using EduConnect.Domain.Entities.User;
+using EduConnect.Domain.Entities.User.Reg;
+using EduConnect.Domain.User.Auth;
 using EduConnect.Domain.User.Reg;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,8 @@ namespace EduConnect.BusinessLogic.Interfaces
 {
      public interface IUser
      {
+          string AuthenticateUser(UserAuthAction auth);
+          UDbTable GetUserByUsername(string username);
           UserRegDataResp RegisterUserAction(RegDataActionDTO local);
      }
 }

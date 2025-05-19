@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\User\UserLoginDTO.cs" />
+    <Compile Include="User\Auth\UserAuthAction.cs" />
     <Compile Include="User\Auth\UserAuthResp.cs" />
     <Compile Include="User\Reg\RegDataActionDTO.cs" />
     <Compile Include="User\Reg\UserRegDataResp.cs" />

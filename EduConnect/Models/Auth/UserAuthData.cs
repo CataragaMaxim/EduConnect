@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EduConnect.Models.Auth
 {
-	public class UserDataLogin
+	public class UserAuthData
 	{
           public string Username { get; set; }
           public string Password { get; set; }

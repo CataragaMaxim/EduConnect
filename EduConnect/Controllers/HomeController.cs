@@ -9,10 +9,24 @@ namespace EduConnect.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
-        {
+          // GET: Home
+          public ActionResult Index()
+          {
+               var token = Session["UserToken"] as string;
+
+               if (string.IsNullOrEmpty(token) && Request.Cookies["UserToken"] != null)
+               {
+                    token = Request.Cookies["UserToken"].Value;
+               }
+
+               //if (string.IsNullOrEmpty(token))
+               //{
+               //     return RedirectToAction("Index", "Auth");
+               //}
+
+               ViewBag.Token = token;
                return View();
-        }
-    }
+          }
+
+     }
 }

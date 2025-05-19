@@ -10,6 +10,32 @@
                               <i class="mdi mdi-email mr-1"></i> maxim.cataraga@isa.utm.md
                          </a>
                     </li>
+                    <li class="list-inline-item">
+                         <a href="#">
+                              <i class="mdi mdi-email mr-1"></i>
+                              @{
+                                   var username = Session["Username"] as string;
+                                   var level = Session["UserLevel"] != null ? (int)Session["UserLevel"] : 0;
+
+                                   if (!string.IsNullOrEmpty(username))
+                                   {
+                                        if (level >= 101)
+                                        {
+                                             @:Moderator: @username
+                                        }
+                                        else
+                                        {
+                                             @username
+                                        }
+                                   }
+                                   else
+                                   {
+                                        @:Guest
+                                   }
+                              }
+                         </a>
+                    </li>
+
                </ul>
           </div>
           <div class="float-right">

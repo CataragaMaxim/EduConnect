@@ -2,6 +2,7 @@
 using EduConnect.BusinessLogic.Interfaces;
 using EduConnect.Domain.Entities.User;
 using EduConnect.Domain.Entities.User.Reg;
+using EduConnect.Domain.User.Auth;
 using EduConnect.Domain.User.Reg;
 using eUseControl.Domain.Enums;
 using System;
@@ -25,16 +26,33 @@ namespace EduConnect.BusinessLogic.Core
           //{
           //     return 1;
           //}
-          //public string AuthenticateUserAction(UserAuthAction auth)
-          //{
-          //     using (var db = new UserContext())
-          //     {
-          //          var user = db.Users.FirstOrDefault(u => u.Username == auth.Username);
-          //          var data = user;
-          //     }
+          public string AuthenticateUserAction(UserAuthAction auth)
+          {
+               using (var db = new UserContext())
+               {
+                    var user = db.Users.FirstOrDefault(u =>
+                        u.Username == auth.Username &&
+                        u.Password == auth.Password
+                    );
 
-          //     return "";
-          //}
+                    if (user != null)
+                    {
+                         user.LastLogin = DateTime.Now;
+                         db.SaveChanges();
+
+                         return Guid.NewGuid().ToString();
+                    }
+               }
+
+               return null;
+          }
+          public UDbTable GetUserByUsernameAction(string username)
+          {
+               using (var db = new UserContext())
+               {
+                    return db.Users.FirstOrDefault(u => u.Username == username);
+               }
+          }
           internal UserRegDataResp SetRegisterUserAction(RegDataActionDTO local)
           {
 

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace EduConnect.Domain.User.Auth
 {
-    class UserAuthResp
+    public class UserAuthResp
     {
-    }
+          public bool Status { get; set; }
+          public string Error { get; set; }
+     }
 }
