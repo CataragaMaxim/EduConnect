@@ -57,7 +57,9 @@
     <Compile Include="BLogic\UserBL.cs" />
     <Compile Include="BLStruct\AuthBL.cs" />
     <Compile Include="BussinesLogic.cs" />
+    <Compile Include="CategBL\CategBL.cs" />
     <Compile Include="Core\AdminApi.cs" />
+    <Compile Include="Core\CategApi.cs" />
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\UserContext.cs" />
     <Compile Include="Interfaces\IAuth.cs" />
