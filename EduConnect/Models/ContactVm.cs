@@ -8,16 +8,16 @@ namespace EduConnect.Models
 {
         public class ContactVm
         {
-            [Required, StringLength(80)]
+            [Required]
             public string Name { get; set; }
 
             [Required, EmailAddress]
             public string Email { get; set; }
 
-            [Required, StringLength(120)]
+            [Required]
             public string Subject { get; set; }
 
-            [Required, StringLength(1000)]
+            [Required]
             public string Message { get; set; }
         }
 
