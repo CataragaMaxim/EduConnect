@@ -27,6 +27,15 @@ namespace EduConnect.Controllers
                ViewBag.Token = token;
                return View();
           }
+        public ActionResult Contact()
+        {
+            return View();
+        }
 
-     }
+       
+
+
+
+
+    }
 }
