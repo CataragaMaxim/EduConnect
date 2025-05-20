@@ -27,6 +27,6 @@ namespace EduConnect.Controllers
                ViewBag.Token = token;
                return View();
           }
-
+          
      }
 }

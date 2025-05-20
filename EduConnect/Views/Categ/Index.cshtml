@@ -1,4 +1,5 @@
 ﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Categories";
 }
 <!-- title start -->
@@ -24,6 +25,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
+                <!--
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card overflow-hidden mb-4">
@@ -49,6 +51,7 @@
                     </div>
                 </div>
                 <!-- end row -->
+                <!--
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card overflow-hidden mb-4">
@@ -74,8 +77,9 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <!-- end row -->
-
+                <!--
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card overflow-hidden mb-4">
@@ -100,7 +104,9 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <!-- end row -->
+                <!--
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="mt-4">
@@ -125,7 +131,24 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <!-- end row -->
+                @model List<EduConnect.Domain.Entities.Categ.Categ>
+                <h2>Categorii:</h2>
+                @foreach (var item in Model)
+            {   
+                 <div class="col-lg-6">
+                    <div class="card overflow-hidden mb-4">
+                        <div class="blog-img">
+                            <img src="images/blog/img-1.jpg" alt="" class="img-fluid mx-auto d-block">
+                        </div>
+                        <div class="blog-content p-3 mx-3">
+                            <h4 class="mt-0"><a href="blog-details.html" class="text-dark">@item.Name</a></h4>
+                             <p class="text-muted mb-0">@item.Description</p>
+                        </div>
+                    </div>
+                 </div>
+            }
             </div>
             <div class="col-lg-4">
                 <div class="blog-right-sidebar">
@@ -140,6 +163,7 @@
                         </div>
                     </div>
 
+                    <!--
                     <div class="widget widget-categories card mb-4">
                         <div class="p-4">
                             <h4 class="widget-title mt-0">Categorii</h4>
@@ -209,6 +233,7 @@
                                 </div>
                         </div>
                     </div>
+                        -->
                 </div>
             </div>
         </div>
