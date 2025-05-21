@@ -18,6 +18,11 @@ namespace EduConnect.Controllers
         // GET: Categ
         public ActionResult Index()
         {
+            var token = Session["UserToken"] as string;
+            if (string.IsNullOrEmpty(token) && Request.Cookies["UserToken"] != null)
+               {
+                token = Request.Cookies["UserToken"].Value;
+               }
             var Cbl = new CategBL();
             var Categs = Cbl.GetAllCategs() ?? new List<Categ>();
             return View(Categs);
