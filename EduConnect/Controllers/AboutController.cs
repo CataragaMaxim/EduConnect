@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace EduConnect.Controllers
 {
-    public class ContactController : Controller
+    public class AboutController : Controller
     {
-        // GET: Contact
-        public ActionResult Contact()
+        // GET: About
+        public ActionResult About()
         {
+            
             return View();
         }
     }
