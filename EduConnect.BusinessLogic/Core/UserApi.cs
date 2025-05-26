@@ -18,14 +18,14 @@ namespace EduConnect.BusinessLogic.Core
     {
 
           public UserApi() { }
-          //public bool IsSessionValidAction(string key)
-          //{
-          //     return true;
-          //}
-          //public int GetUserIdBySessionKeyAction(string sessionKey)
-          //{
-          //     return 1;
-          //}
+          public bool IsSessionValidAction(string key)
+          {
+               return true;
+          }
+          public int GetUserIdBySessionKeyAction(string sessionKey)
+          {
+               return 1;
+          }
           public string AuthenticateUserAction(UserAuthAction auth)
           {
                using (var db = new UserContext())
@@ -91,16 +91,6 @@ namespace EduConnect.BusinessLogic.Core
 
 
                 return new UserRegDataResp() { Status = true };
-          }
-          public string UserAuthLogicAction(UserLoginDTO data)
-          {
-
-
-
-
-
-
-               return "token-key";
           }
     }
 }
