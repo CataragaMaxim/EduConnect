@@ -12,3 +12,4 @@ namespace EduConnect.Domain.User.Auth
           public string Error { get; set; }
      }
 }
+ 
