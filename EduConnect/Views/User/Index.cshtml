@@ -1,0 +1,18 @@
+@{ 
+     Layout = "~/Views/Shared/_Layout.cshtml";
+     ViewBag.Title = "User";
+}
+
+@model EduConnect.Models.UserProfileVM
+
+<section class="section bg-light">
+     <div class="container">
+          <div class="text-center">
+               <img src="@Model.ProfileImageUrl" class="rounded-circle" style="width: 150px; height: 150px;" />
+               <h2 class="mt-3">@Model.Username</h2>
+               <p><strong>Rol:</strong> @(Convert.ToInt32(Model.Role) >= 101 ? "Moderator" : "Utilizator")</p>
+               <p><strong>Email:</strong> @Model.Email</p>
+               <a href="@Url.Action("Settings", "User")" class="btn btn-primary mt-3">Setari profil</a>
+          </div>
+     </div>
+</section>
