@@ -5,16 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EduConnect.Domain.Entities.User;
+using EduConnect.BusinessLogic.DBModel;
+
 
 namespace EduConnect.BusinessLogic.DBModel
 {
-    class UserContext : DbContext
+    public class UserContext : DbContext
      {
-          public UserContext() :
-               base("name=EduConnect")
+          public UserContext() : base("name=EduConnect")
           {
           }
 
           public virtual DbSet<UDbTable> Users { get; set; }
-     }
+        public DbSet<Contact> Contacts { get; set; }
+    }
 }
