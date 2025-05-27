@@ -26,6 +26,60 @@ namespace EduConnect.BusinessLogic.Core
           {
                return 1;
           }
+          public UserUpdateResp UpdateUserSettingsAction(string currentUsername, string newUsername, string newEmail)
+          {
+               using (var db = new UserContext())
+               {
+                    var user = db.Users.FirstOrDefault(u => u.Username == currentUsername);
+                    if (user == null)
+                    {
+                         return new UserUpdateResp
+                         {
+                              Success = false,
+                              Message = "Utilizatorul curent nu a fost găsit."
+                         };
+                    }
+
+                    if (user.Username == newUsername && user.Email == newEmail)
+                    {
+                         return new UserUpdateResp
+                         {
+                              Success = false,
+                              Message = "Datele sunt identice cu cele existente. Nicio modificare necesară."
+                         };
+                    }
+
+                    if (user.Username != newUsername &&
+                        db.Users.Any(u => u.Username == newUsername && u.Id != user.Id))
+                    {
+                         return new UserUpdateResp
+                         {
+                              Success = false,
+                              Message = "Noul nume este deja folosit."
+                         };
+                    }
+
+                    if (user.Email != newEmail &&
+                        db.Users.Any(u => u.Email == newEmail && u.Id != user.Id))
+                    {
+                         return new UserUpdateResp
+                         {
+                              Success = false,
+                              Message = "Noul email este deja folosit."
+                         };
+                    }
+
+                    user.Username = newUsername;
+                    user.Email = newEmail;
+                    db.SaveChanges();
+
+                    return new UserUpdateResp
+                    {
+                         Success = true,
+                         Message = "Datele au fost actualizate cu succes."
+                    };
+               }
+          }
           public string AuthenticateUserAction(UserAuthAction auth)
           {
                using (var db = new UserContext())

@@ -26,7 +26,10 @@ namespace EduConnect.BusinessLogic.BLogic
           {
                return GetUserIdBySessionKeyAction(sessionKey);
           }
-
+          public UserUpdateResp UpdateUserSettings(string currentUsername, string newUsername, string newEmail)
+          {
+               return UpdateUserSettingsAction(currentUsername, newUsername, newEmail);
+          }
           public bool IsSessionValid(string key)
           {
                return IsSessionValidAction(key);

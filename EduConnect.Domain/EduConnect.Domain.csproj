@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Categ\Categ.cs" />
+    <Compile Include="Entities\User\UserUpdateResp.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Entities\User\Auth\UserAuthAction.cs" />
     <Compile Include="Entities\User\Auth\UserAuthResp.cs" />

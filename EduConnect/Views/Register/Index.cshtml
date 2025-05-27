@@ -8,23 +8,34 @@
 @model EduConnect.Models.Reg.UserRegData
 
 <h2>Register</h2>
-
+@if (!ViewData.ModelState.IsValid)
+{
+     <div class="alert alert-danger">
+          @Html.ValidationSummary(true)
+     </div>
+}
 @using (Html.BeginForm("Reg", "Register", FormMethod.Post))
 {
      <div class="container">
+          <div class="form-group">
+               @Html.LabelFor(u => u.Username)
+               @Html.TextBoxFor(u => u.Username, new { @class = "form-control", placeholder = "Username" })
+               @Html.ValidationMessageFor(u => u.Username, "", new { @class = "text-danger" })
+          </div>
 
-          @Html.LabelFor(u => u.Username)
+          <div class="form-group">
+               @Html.LabelFor(u => u.Password)
+               @Html.PasswordFor(u => u.Password, new { @class = "form-control", placeholder = "Parola" })
+               @Html.ValidationMessageFor(u => u.Password, "", new { @class = "text-danger" })
+          </div>
 
-          @Html.TextBoxFor(u => u.Username)
+          <div class="form-group">
+               @Html.LabelFor(u => u.Email)
+               @Html.TextBoxFor(u => u.Email, new { @class = "form-control", placeholder = "Email" })
+               @Html.ValidationMessageFor(u => u.Email, "", new { @class = "text-danger" })
+          </div>
 
-          @Html.LabelFor(u => u.Password)
+          <button type="submit" class="btn btn-primary">Register</button>
 
-          @Html.TextBoxFor(u => u.Password)
-
-          @Html.LabelFor(u => u.Email)
-
-          @Html.TextBoxFor(u => u.Email)
-
-          <button type="submit">Register</button>
      </div>
 }
