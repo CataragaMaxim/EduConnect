@@ -4,13 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace EduConnect.Models.Auth
+namespace EduConnect.Models.Admin
 {
-	public class UserAuthData
-	{
-          [Required(ErrorMessage = "Numele este obligatoriu")]
+     public class EditUserVM
+     {
+          public int Id { get; set; }
           public string Username { get; set; }
-          [Required(ErrorMessage = "Parola este obligatorie")]
+          public string Email { get; set; }
           public string Password { get; set; }
+
+          [Display(Name = "Level")]
+          public int Level { get; set; }
      }
 }

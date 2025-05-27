@@ -15,5 +15,6 @@ namespace EduConnect.BusinessLogic.Interfaces
           string AuthenticateUser(UserAuthAction auth);
           UDbTable GetUserByUsername(string username);
           UserRegDataResp RegisterUserAction(RegDataActionDTO local);
+          UserUpdateResp UpdateUserSettings(string currentUsername, string newUsername, string newEmail, string currentPassword, string newPassword);
      }
 }

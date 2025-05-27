@@ -1,0 +1,36 @@
+@{
+     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+     ViewBag.Title = "AdminPage";
+}
+@model EduConnect.Models.Admin.AdminProfileVM
+
+<section class="section bg-light py-5">
+     <div class="container">
+          <div class="row align-items-center">
+               <!-- Imaginea adminului -->
+               <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <img src="@Model.ProfileImageUrl" class="img-fluid shadow" alt="Admin Image" style="max-width: 300px; height: auto;" />
+               </div>
+
+               <!-- Informa?ii admin -->
+               <div class="col-md-8">
+                    <h2 class="mb-3">Bun venit, <strong>@Model.Username</strong></h2>
+                    <p class="mb-2"><strong>Rol:</strong> Admin / @(Convert.ToInt32(Model.Role) >= 1000 ? "Max" : "Nichita / Dorin")</p>
+                    <p class="mb-2"><strong>Email:</strong> @Model.Email</p>
+
+                    <hr />
+                    <div>
+                         <p class="text-muted">Aceasta este sectiunea de control administrativ. De aici poti gestiona utilizatori, continut si altele.</p>
+                    </div>
+               </div>
+          </div>
+
+          <!-- Sec?iune extra jos -->
+          <div class="row mt-5">
+               <div class="col-12 text-center">
+                    <a href="@Url.Action("Users", "Admin")" class="btn btn-outline-primary btn-lg mr-2">Gestioneaza Utilizatori</a>
+                    <a href="@Url.Action("Settings", "Admin")" class="btn btn-outline-secondary btn-lg">Setari Admin</a>
+               </div>
+          </div>
+     </div>
+</section>
