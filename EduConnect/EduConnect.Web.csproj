@@ -515,11 +515,19 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Log.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Categ\Index.cshtml" />
+    <Content Include="Views\Shared\_Categ.cshtml" />
+    <Content Include="Views\Categ\ViewCateg.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Categ\ViewCateg.cshtml" />
+=======
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Settings.cshtml" />
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\Shared\_AdminFooter.cshtml" />
     <Content Include="Views\Shared\_AdminHeader.cshtml" />
+>>>>>>> max
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
