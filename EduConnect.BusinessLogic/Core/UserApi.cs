@@ -2,6 +2,7 @@
 using EduConnect.BusinessLogic.Interfaces;
 using EduConnect.Domain.Entities.User;
 using EduConnect.Domain.Entities.User.Reg;
+using EduConnect.Domain.Enums;
 using EduConnect.Domain.User.Auth;
 using EduConnect.Domain.User.Reg;
 using System;
