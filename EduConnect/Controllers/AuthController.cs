@@ -13,32 +13,34 @@ using EduConnect.Domain.User.Auth;
 
 namespace EduConnect.Controllers
 {
-    public class AuthController : Controller
-    {
-          private readonly IUser _user;
-          public AuthController()
+     public class AuthController : Controller
+     {
+          private IUser _user;
+          private ISession _session;
+
+          protected override void OnActionExecuting(ActionExecutingContext filterContext)
           {
-               var bl = new BusinessLogic.BussinesLogic();
+               var bl = new BussinesLogic();
                _user = bl.GetUserBL();
+               _session = bl.GetSessionBL(
+                   new HttpSessionStateWrapper(System.Web.HttpContext.Current.Session),
+                   new HttpRequestWrapper(System.Web.HttpContext.Current.Request),
+                   new HttpResponseWrapper(System.Web.HttpContext.Current.Response)
+               );
+               base.OnActionExecuting(filterContext);
           }
-          // GET: Auth
+
           public ActionResult Index()
-        {
-            return View(new UserAuthData());
-        }
+          {
+               return View(new UserAuthData());
+          }
+
           public ActionResult Logout()
           {
-               Session.Clear();
-
-               if (Request.Cookies["UserToken"] != null)
-               {
-                    var cookie = new HttpCookie("UserToken");
-                    cookie.Expires = DateTime.Now.AddDays(-1); // Expiră cookie-ul
-                    Response.Cookies.Add(cookie);
-               }
-
+               _session.ClearUserSession();
                return RedirectToAction("Index", "Auth");
           }
+
           [HttpPost]
           public ActionResult Auth(UserAuthData data)
           {
@@ -53,18 +55,13 @@ namespace EduConnect.Controllers
                if (!string.IsNullOrEmpty(token))
                {
                     var user = _user.GetUserByUsername(auth.Username);
-
-                    Session["Username"] = user.Username;
-                    Session["UserLevel"] = (int)user.Level;
-
-                    Session["UserToken"] = token;
-
+                    _session.SetUserSession(user.Username, (int)user.Level, token, user.Email);
                     return RedirectToAction("Index", "Home");
                }
-
 
                ModelState.AddModelError("", "Autentificare eșuată. Verifică datele.");
                return View("Index", data);
           }
-    }
+     }
+
 }

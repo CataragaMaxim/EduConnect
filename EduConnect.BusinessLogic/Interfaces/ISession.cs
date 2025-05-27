@@ -9,6 +9,11 @@ namespace EduConnect.BusinessLogic.Interfaces
 {
      public interface ISession
      {
-          ULoginResp UserLogin(ULoginData data);
+          void SetUserSession(string username, int userLevel, string token, string email);
+          void ClearUserSession();
+          string GetUserToken();
+          string GetUserEmail();
+          bool IsSessionValid(string key);
+          int GetUserIdBySessionKey(string key);
      }
 }
