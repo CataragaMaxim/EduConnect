@@ -14,6 +14,10 @@ namespace EduConnect.Controllers
           // GET: Home
           public ActionResult Index()
           {
+               if (Convert.ToInt32(Session["UserLevel"]) >= 1000)
+               {
+                    return RedirectToAction("Index", "Admin");
+               }
                ISession session = new SessionBL(Session, Request, Response);
                var token = session.GetUserToken();
 

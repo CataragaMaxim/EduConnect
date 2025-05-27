@@ -481,6 +481,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CategController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -489,11 +490,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin\AdminProfileVM.cs" />
+    <Compile Include="Models\Admin\EditUserVM.cs" />
     <Compile Include="Models\Auth\UserAuthData.cs" />
     <Compile Include="Models\Reg\UserRegData.cs" />
     <Compile Include="Models\UserProfileVM.cs" />
     <Compile Include="Models\UserSettingsVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\DataBase.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
     <None Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -511,6 +517,9 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Settings.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\Shared\_AdminFooter.cshtml" />
+    <Content Include="Views\Shared\_AdminHeader.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
@@ -522,7 +531,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EduConnect.BusinessLogic\EduConnect.BusinessLogic.csproj">

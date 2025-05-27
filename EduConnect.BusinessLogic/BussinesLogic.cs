@@ -17,6 +17,10 @@ namespace EduConnect.BusinessLogic
                return new SessionBL(session, request, response);
           }
 
+          public IAdmin GetAdminBL()
+          {
+               return new AdminBL();
+          }
 
           public IUser GetUserBL()
           {

@@ -8,12 +8,6 @@
 @model EduConnect.Models.Reg.UserRegData
 
 <h2>Register</h2>
-@if (!ViewData.ModelState.IsValid)
-{
-     <div class="alert alert-danger">
-          @Html.ValidationSummary(true)
-     </div>
-}
 @using (Html.BeginForm("Reg", "Register", FormMethod.Post))
 {
      <div class="container">

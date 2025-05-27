@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLogic\AdminBL.cs" />
     <Compile Include="BLogic\UserBL.cs" />
     <Compile Include="BussinesLogic.cs" />
     <Compile Include="CategBL\CategBL.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Core\CategApi.cs" />
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\UserContext.cs" />
+    <Compile Include="Interfaces\IAdmin.cs" />
     <Compile Include="Interfaces\ISession.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

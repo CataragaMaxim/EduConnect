@@ -15,7 +15,9 @@ public class UserController : Controller
      public ActionResult Settings()
      {
           if (!IsUserLoggedIn())
+          {
                return RedirectToAction("Index", "Home");
+          }
 
           var session = new SessionBL(Session, Request, Response);
           var username = Session["Username"] as string;
@@ -33,15 +35,12 @@ public class UserController : Controller
      [HttpPost]
      public ActionResult Settings(UserSettingsVM model)
      {
-          if (!IsUserLoggedIn())
-               return RedirectToAction("Index", "Home");
-
           var bl = new BussinesLogic();
           var userBL = bl.GetUserBL();
           var session = new SessionBL(Session, Request, Response);
           var currentUsername = Session["Username"] as string;
 
-          var updateResult = userBL.UpdateUserSettings(currentUsername, model.Username, model.Email);
+          var updateResult = userBL.UpdateUserSettings(currentUsername, model.Username, model.Email, model.CurrentPassword, model.NewPassword);
 
           if (updateResult.Success)
           {
@@ -50,13 +49,16 @@ public class UserController : Controller
           }
 
           model.Message = updateResult.Message;
+
           return View(model);
      }
 
      public ActionResult Index()
      {
           if (!IsUserLoggedIn())
+          {
                return RedirectToAction("Index", "Home");
+          }
 
           var session = new SessionBL(Session, Request, Response);
           var viewModel = new UserProfileVM
