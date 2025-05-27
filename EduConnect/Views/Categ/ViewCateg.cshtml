@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Denumire Categorie";
+}
+<!-- title start -->
+<section class="page-header-box bg-primary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h3 class="page-header-title text-white">Categorii</h3>
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">educonnect</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pagini</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Categorii</li>
+                    </ol>
+                </div>
+            </div>
+        </div> <!--end row-->
+    </div> <!--end container-->
+</section>
+<!-- title end -->
+<!-- blog start -->
+
+<section class="section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                @model EduConnect.Domain.Entities.Categ.Categ
+                @{
+                    var categ = Session["Categ"] as string;
+                    <h3 class="mb-3">@Model.Name</h3><br />
+                    <p class="text-muted mb-0">@Model.Description</p>
+                }
+                <!--
+    -->
+            </div>
+            <!--
+            <div class="col-lg-4">
+                <div class="blog-right-sidebar">
+                    <div class="widget widget-search card mb-4">
+                        <div class="card-body">
+                            <form>
+                                <input class="form-control" type="search" placeholder="Caută...">
+                                <button class="search-button" type="submit">
+                                    <i class="mdi mdi-magnify"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container-fluid -->
+</section>
+<!-- blog end -->

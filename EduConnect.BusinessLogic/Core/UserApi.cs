@@ -4,7 +4,6 @@ using EduConnect.Domain.Entities.User;
 using EduConnect.Domain.Entities.User.Reg;
 using EduConnect.Domain.User.Auth;
 using EduConnect.Domain.User.Reg;
-using eUseControl.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -144,7 +144,7 @@
                                 <img src="images/blog/img-1.jpg" alt="" class="img-fluid mx-auto d-block">
                             </div>
                             <div class="blog-content p-3 mx-3">
-                                <h4 class="mt-0"><a href="blog-details.html" class="text-dark">@item.Name</a></h4>
+                                <h4 class="mt-0"><a href="@Url.Action("ViewCateg", "Categ", new {id = item.Id})" class="text-dark">@item.Name</a></h4>
                                 <p class="text-muted mb-0">@item.Description</p>
                             </div>
                         </div>
