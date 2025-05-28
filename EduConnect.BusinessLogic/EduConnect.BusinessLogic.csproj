@@ -56,22 +56,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLogic\AdminBL.cs" />
+    <Compile Include="BLogic\ThreadBL.cs" />
     <Compile Include="BLogic\UserBL.cs" />
     <Compile Include="BussinesLogic.cs" />
     <Compile Include="CategBL\CategBL.cs" />
     <Compile Include="Core\AdminApi.cs" />
     <Compile Include="Core\CategApi.cs" />
+    <Compile Include="Core\ThreadApi.cs" />
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\ThreadContext.cs" />
     <Compile Include="DBModel\UserContext.cs" />
     <Compile Include="Interfaces\IAdmin.cs" />
     <Compile Include="Interfaces\ISession.cs" />
-    <Compile Include="Interfaces\IThreadPost.cs" />
+    <Compile Include="Interfaces\IThread.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionBL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EduConnect.Domain\EduConnect.Domain.csproj">
+      <Project>{92874dee-b274-42db-a302-7e2b3a579580}</Project>
+      <Name>EduConnect.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EduConnect.Helpers\EduConnect.Helpers.csproj">
       <Project>{296dd5c8-ec89-4c73-abe6-2479e36afa61}</Project>
       <Name>EduConnect.Helpers</Name>
