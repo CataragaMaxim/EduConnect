@@ -1,4 +1,6 @@
-﻿using EduConnect.Web.Models;
+﻿using EduConnect.BusinessLogic;
+using EduConnect.BusinessLogic.Interfaces;
+using EduConnect.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +14,11 @@ namespace EduConnect.Controllers
           // GET: Home
           public ActionResult Index()
           {
-               var token = Session["UserToken"] as string;
-
-               if (string.IsNullOrEmpty(token) && Request.Cookies["UserToken"] != null)
-               {
-                    token = Request.Cookies["UserToken"].Value;
-               }
-
-               //if (string.IsNullOrEmpty(token))
-               //{
-               //     return RedirectToAction("Index", "Auth");
-               //}
+               ISession session = new SessionBL(Session, Request, Response);
+               var token = session.GetUserToken();
 
                ViewBag.Token = token;
-               return View();
+               return View(); ;
           }
           
      }

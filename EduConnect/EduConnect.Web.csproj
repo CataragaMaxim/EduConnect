@@ -470,13 +470,13 @@
     <Compile Include="Controllers\CategController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Auth\UserAuthData.cs" />
     <Compile Include="Models\Reg\UserRegData.cs" />
-    <Compile Include="Models\UserData.cs" />
-    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\UserProfileVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
@@ -496,6 +496,8 @@
     <Content Include="Views\Categ\Index.cshtml" />
     <Content Include="Views\Shared\_Categ.cshtml" />
     <Content Include="Views\Categ\ViewCateg.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Categ\ViewCateg.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
@@ -507,6 +509,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EduConnect.BusinessLogic\EduConnect.BusinessLogic.csproj">

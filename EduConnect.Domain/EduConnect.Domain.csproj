@@ -49,13 +49,11 @@
     <Compile Include="Entities\Thread\UDbThreads.cs" />
     <Compile Include="Entities\User\UserLoginDTO.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="User\Auth\UserAuthAction.cs" />
-    <Compile Include="User\Auth\UserAuthResp.cs" />
-    <Compile Include="User\Reg\RegDataActionDTO.cs" />
-    <Compile Include="User\Reg\UserRegDataResp.cs" />
+    <Compile Include="Entities\User\Auth\UserAuthAction.cs" />
+    <Compile Include="Entities\User\Auth\UserAuthResp.cs" />
+    <Compile Include="Entities\User\Reg\RegDataActionDTO.cs" />
+    <Compile Include="Entities\User\Reg\UserRegDataResp.cs" />
     <Compile Include="Entities\User\UDbTable.cs" />
-    <Compile Include="Entities\User\ULoginData.cs" />
-    <Compile Include="Entities\User\ULoginResp.cs" />
     <Compile Include="Enums\URole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
