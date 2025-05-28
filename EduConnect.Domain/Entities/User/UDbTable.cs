@@ -1,4 +1,4 @@
-﻿using eUseControl.Domain.Enums;
+﻿using EduConnect.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
