@@ -10,6 +10,6 @@ namespace EduConnect.BusinessLogic.DBModel
 {
     class ThreadContext : DbContext
     {
-        public DbSet<Thread> Threads { get; set; }
+        public DbSet<UDbThreads> Threads { get; set; }
     }
 }

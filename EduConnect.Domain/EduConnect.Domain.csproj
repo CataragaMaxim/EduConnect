@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Categ\Categ.cs" />
-    <Compile Include="Entities\Thread\Thread.cs" />
+    <Compile Include="Entities\Thread\UDbThreads.cs" />
     <Compile Include="Entities\User\UserLoginDTO.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="User\Auth\UserAuthAction.cs" />

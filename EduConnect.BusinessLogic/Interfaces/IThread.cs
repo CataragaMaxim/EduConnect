@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EduConnect.Domain.Entities.Thread;
 
 namespace EduConnect.BusinessLogic.Interfaces
 {
-    public interface IThreadPost
+    public interface IThread
     {
-        //Metode, metode, metode...
+        UDbThreads GetThreadById(int Id);
+        UDbThreads GetAllThreads();
     }
 }
