@@ -72,10 +72,6 @@
     <Compile Include="SessionBL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EduConnect.Domain\EduConnect.Domain.csproj">
-      <Project>{92874dee-b274-42db-a302-7e2b3a579580}</Project>
-      <Name>EduConnect.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EduConnect.Helpers\EduConnect.Helpers.csproj">
       <Project>{296dd5c8-ec89-4c73-abe6-2479e36afa61}</Project>
       <Name>EduConnect.Helpers</Name>
