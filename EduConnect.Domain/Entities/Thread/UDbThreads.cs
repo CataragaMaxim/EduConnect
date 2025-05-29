@@ -21,10 +21,11 @@ namespace EduConnect.Domain.Entities.Thread
         [Required]
         [Display(Name = "Author")]
         public string Author { get; set; }
+        [Required]
         [Display(Name = "Category")]
         public string Category { get; set; }
         [Display(Name = "Description")]
-        [StringLength(2048, MinimumLength = 1, ErrorMessage = "The title cannot be longer than 2048 characters.")]
+        [StringLength(2048, MinimumLength = 1, ErrorMessage = "The descripton cannot be longer than 2048 characters.")]
         public string Description { get; set; }
     }
 }

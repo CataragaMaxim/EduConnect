@@ -9,7 +9,7 @@ using EduConnect.Domain.Entities.Thread;
 namespace EduConnect.BusinessLogic.DBModel
 {
     class ThreadContext : DbContext
-    {
+    {   
         public DbSet<UDbThreads> Threads { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EduConnect.Domain.Entities.Thread;
 using EduConnect.Domain.Entities.User;
 
 namespace EduConnect.BusinessLogic.DBModel
@@ -16,5 +17,6 @@ namespace EduConnect.BusinessLogic.DBModel
           }
 
           public virtual DbSet<UDbTable> Users { get; set; }
-     }
+          public virtual DbSet<UDbThreads> Threads { get; set; }
+    }
 }

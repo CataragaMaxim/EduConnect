@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 using EduConnect.BusinessLogic.Interfaces;
 using EduConnect.BusinessLogic.Core;
 using EduConnect.Domain.Entities.Thread;
+using EduConnect.Domain.Entities.User;
 
 namespace EduConnect.BusinessLogic.BLogic
 {
     public class ThreadBL : ThreadApi, IThread
     {
-        public UDbThreads GetAllThreads()
+        public AddThreadResp AddThread(AddThreadDTO local)
         {
-            throw new NotImplementedException();
+            return AddThreadAction(local);
         }
 
-        UDbThreads IThread.GetThreadById(int Id)
+        public IEnumerable<UDbThreads> GetAllThreads()
         {
-            throw new NotImplementedException();
+            return GetAllThreadsAction();
+        }
+
+        public UDbThreads GetThreadById(int id)
+        {
+            return GetThreadByIdAction(id);
         }
     }
 }
