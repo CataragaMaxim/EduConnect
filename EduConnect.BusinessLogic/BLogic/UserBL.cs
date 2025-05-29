@@ -22,15 +22,18 @@ namespace EduConnect.BusinessLogic.BLogic
           {
                return GetUserByUsernameAction(username);
           }
-          //public int GetUserIdBySessionKey(string sessionKey)
-          //{
-          //     return GetUserIdBySessionKeyAction(sessionKey);
-          //}
-
-          //public bool IsSessionValid(string key)
-          //{
-          //     return IsSessionValidAction(key);
-          //}
+          public int GetUserIdBySessionKey(string sessionKey)
+          {
+               return GetUserIdBySessionKeyAction(sessionKey);
+          }
+          public UserUpdateResp UpdateUserSettings(string currentUsername, string newUsername, string newEmail, string currentPassword, string newPassword)
+          {
+               return UpdateUserSettingsAction(currentUsername, newUsername, newEmail, currentPassword, newPassword);
+          }
+          public bool IsSessionValid(string key)
+          {
+               return IsSessionValidAction(key);
+          }
           public UserRegDataResp RegisterUserAction(RegDataActionDTO local)
           {
                return SetRegisterUserAction(local);

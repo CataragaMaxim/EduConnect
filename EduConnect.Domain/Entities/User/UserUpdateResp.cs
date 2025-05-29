@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EduConnect.Domain.Entities.User
 {
-    public class ULoginResp
-    {
-        public bool Status { get; set; }
-        public string StatusMsg { get; set; }
-    }
+     public class UserUpdateResp
+     {
+          public bool Success { get; set; }
+          public string Message { get; set; }
+     }
 }

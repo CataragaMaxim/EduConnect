@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EduConnect.BusinessLogic.CategBL;
+using EduConnect.BusinessLogic.Interfaces;
 using EduConnect.Domain.Entities.Categ;
+using Microsoft.AspNet.Identity;
 
 namespace EduConnect.Controllers
 {
@@ -18,9 +20,29 @@ namespace EduConnect.Controllers
         // GET: Categ
         public ActionResult Index()
         {
+            var token = Session["UserToken"] as string;
+            if (string.IsNullOrEmpty(token) && Request.Cookies["UserToken"] != null)
+               {
+                token = Request.Cookies["UserToken"].Value;
+               }
             var Cbl = new CategBL();
             var Categs = Cbl.GetAllCategs() ?? new List<Categ>();
             return View(Categs);
+            //return View();
+        }
+        public ActionResult ViewCateg(int id)
+        {
+            var token = Session["UserToken"] as string;
+            if (string.IsNullOrEmpty(token) && Request.Cookies["UserToken"] != null)
+            {
+                token = Request.Cookies["UserToken"].Value;
+            }
+            var Cbl = new CategBL();
+            var Categs = Cbl.GetAllCategs() ?? new List<Categ>();
+            //var categ = _categ.GetCategByUsername(auth.Username);
+            //Session["Categname"] = categ.Name;
+            //Session["CategDesc"] = categ.Description;
+            return View(Categs[id]);
             //return View();
         }
     }

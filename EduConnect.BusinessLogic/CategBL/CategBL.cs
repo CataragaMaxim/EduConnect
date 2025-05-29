@@ -15,27 +15,27 @@ namespace EduConnect.BusinessLogic.CategBL
             return new List<Categ>
             {
                 new Categ {
-                    Id = 1, Name = "Literatură",
+                    Id = 0, Name = "Literatură",
                     Description = "Atât română cât și cea universală"
                 },
                 new Categ {
-                    Id = 2, Name = "Matematică",
+                    Id = 1, Name = "Matematică",
                     Description = "Elemente teoretice împreună cu probleme rezolvate și explicate pe înțelesul tuturor"
                 },
                 new Categ {
-                    Id = 3, Name = "Chimie",
+                    Id = 2, Name = "Chimie",
                     Description = "Sfaturi pentru reacții chimice, formule, exerciții și experimente demonstrative"
                 },
                 new Categ {
-                    Id = 4, Name = "Fizică",
+                    Id = 3, Name = "Fizică",
                     Description = "Învățare prin experimente, concepte teoretice și aplicații practice discutate detaliat"
                 },
                 new Categ {
-                    Id = 5, Name = "Programare",
+                    Id = 4, Name = "Programare",
                     Description = "Tutoriale pas cu pas, discuții despre erori și recomandări de proiecte practice"
                 },
                 new Categ {
-                    Id = 6, Name = "Istorie",
+                    Id = 5, Name = "Istorie",
                     Description = "Analiza evenimentelor istorice, interpretări multiple și resurse pentru aprofundare"
                 }
             };

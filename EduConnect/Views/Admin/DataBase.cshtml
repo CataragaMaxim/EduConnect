@@ -1,0 +1,71 @@
+@{
+     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+     ViewBag.Title = "DataBase";
+}
+
+<h4>Selecteaza o baza de date</h4>
+
+@using (Html.BeginForm("Database", "Admin", FormMethod.Get))
+{
+     <div class="form-group">
+          <label for="selectedTable">Tabel:</label>
+          <select name="selectedTable" id="selectedTable" class="form-control" onchange="this.form.submit()">
+               <option value="">-- Selecteaza --</option>
+               <option value="Users" @(Request["UDbTable"] == "Users" ? "selected" : "")>Utilizatori</option>
+               <option value="Forum" @(Request["selectedTable"] == "Forum" ? "selected" : "")>Forum Threads</option>
+          </select>
+     </div>
+}
+
+<hr />
+
+@if (ViewBag.Data != null)
+{
+     var items = (IEnumerable<object>)ViewBag.Data;
+     if (!items.Any())
+     {
+          <p><strong>Nu exista date disponibile in aceasta tabela.</strong></p>
+     }
+     else
+     {
+          var typeName = items.First().GetType().Name;
+
+          <table class="table table-bordered table-striped">
+               <thead>
+                    <tr>
+                         @foreach (var prop in items.First().GetType().GetProperties())
+                         {
+                              <th>@prop.Name</th>
+                         }
+                         <th>Actiuni</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    @foreach (var item in items)
+                    {
+                         var idProp = item.GetType().GetProperty("Id");
+                         var idValue = idProp?.GetValue(item);
+
+                         <tr>
+                              @foreach (var prop in item.GetType().GetProperties())
+                              {
+                                   <td>@(prop.GetValue(item) ?? "-")</td>
+                              }
+                              <td>
+                                   @if (typeName == "UDbTable")
+                                   {
+                                        @Html.ActionLink("Edit", "EditUser", new { id = idValue }, new { @class = "btn btn-sm btn-primary" })
+                                        @Html.ActionLink("Delete", "DeleteUser", new { id = idValue }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Esti sigur ca vrei sa stergi acest utilizator?');" })
+                                   }
+                                   else if (typeName == "Thread")
+                                   {
+                                        @Html.ActionLink("Edit", "EditThread", new { id = idValue }, new { @class = "btn btn-sm btn-primary" })
+                                        @Html.ActionLink("Delete", "DeleteThread", new { id = idValue }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Esti sigur ca vrei sa stergi acest thread?');" })
+                                   }
+                              </td>
+                         </tr>
+                    }
+               </tbody>
+          </table>
+     }
+}

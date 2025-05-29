@@ -2,9 +2,9 @@
 using EduConnect.BusinessLogic.Interfaces;
 using EduConnect.Domain.Entities.User;
 using EduConnect.Domain.Entities.User.Reg;
+using EduConnect.Domain.Enums;
 using EduConnect.Domain.User.Auth;
 using EduConnect.Domain.User.Reg;
-using eUseControl.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +18,62 @@ namespace EduConnect.BusinessLogic.Core
     {
 
           public UserApi() { }
-          //public bool IsSessionValidAction(string key)
-          //{
-          //     return true;
-          //}
-          //public int GetUserIdBySessionKeyAction(string sessionKey)
-          //{
-          //     return 1;
-          //}
+          public bool IsSessionValidAction(string key)
+          {
+               return true;
+          }
+          public int GetUserIdBySessionKeyAction(string sessionKey)
+          {
+               return 1;
+          }
+          public UserUpdateResp UpdateUserSettingsAction(string currentUsername, string newUsername, string newEmail, string currentPassword, string newPassword)
+          {
+               using (var db = new UserContext())
+               {
+                    var user = db.Users.FirstOrDefault(u => u.Username == currentUsername);
+                    if (user == null)
+                    {
+                         return new UserUpdateResp { Success = false, Message = "Utilizatorul nu a fost găsit." };
+                    }
+
+                    if (!string.IsNullOrEmpty(currentPassword) || !string.IsNullOrEmpty(newPassword))
+                    {
+                         if (user.Password != currentPassword)
+                         {
+                              return new UserUpdateResp { Success = false, Message = "Parola actuală este greșită." };
+                         }
+
+                         if (string.IsNullOrWhiteSpace(newPassword) || newPassword.Length < 8)
+                         {
+                              return new UserUpdateResp { Success = false, Message = "Noua parolă este prea scurtă." };
+                         }
+
+                         user.Password = newPassword;
+                    }
+
+                    if (user.Username != newUsername && db.Users.Any(u => u.Username == newUsername))
+                    {
+                         return new UserUpdateResp { Success = false, Message = "Noul username este deja utilizat." };
+                    }
+
+                    if (user.Email != newEmail && db.Users.Any(u => u.Email == newEmail))
+                    {
+                         return new UserUpdateResp { Success = false, Message = "Noul email este deja utilizat." };
+                    }
+
+                    if (user.Username == newUsername && user.Email == newEmail && string.IsNullOrEmpty(newPassword))
+                    {
+                         return new UserUpdateResp { Success = false, Message = "Nicio modificare detectată." };
+                    }
+
+                    user.Username = newUsername;
+                    user.Email = newEmail;
+                    db.SaveChanges();
+
+                    return new UserUpdateResp { Success = true, Message = "Modificările au fost salvate cu succes." };
+               }
+          }
+
           public string AuthenticateUserAction(UserAuthAction auth)
           {
                using (var db = new UserContext())
@@ -91,16 +139,6 @@ namespace EduConnect.BusinessLogic.Core
 
 
                 return new UserRegDataResp() { Status = true };
-          }
-          public string UserAuthLogicAction(UserLoginDTO data)
-          {
-
-
-
-
-
-
-               return "token-key";
           }
     }
 }
