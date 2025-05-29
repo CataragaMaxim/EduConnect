@@ -55,8 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLogic\AdminBL.cs" />
     <Compile Include="BLogic\ThreadBL.cs" />
+    <Compile Include="BLogic\AdminBL.cs" />
     <Compile Include="BLogic\UserBL.cs" />
     <Compile Include="BussinesLogic.cs" />
     <Compile Include="CategBL\CategBL.cs" />
