@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Web", "EduConnect\EduConnect.Web.csproj", "{32EE3B71-8064-4434-A76A-D460FD48DEA8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.BusinessLogic", "EduConnect.BusinessLogic\EduConnect.BusinessLogic.csproj", "{B8ED1020-6CF3-4574-B607-24F9DF8A4871}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Helpers", "EduConnect.Helpers\EduConnect.Helpers.csproj", "{296DD5C8-EC89-4C73-ABE6-2479E36AFA61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Domain", "EduConnect.Domain\EduConnect.Domain.csproj", "{92874DEE-B274-42DB-A302-7E2B3A579580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduConnect.Web", "EduConnect\EduConnect.Web.csproj", "{32EE3B71-8064-4434-A76A-D460FD48DEA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B8ED1020-6CF3-4574-B607-24F9DF8A4871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8ED1020-6CF3-4574-B607-24F9DF8A4871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8ED1020-6CF3-4574-B607-24F9DF8A4871}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{92874DEE-B274-42DB-A302-7E2B3A579580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92874DEE-B274-42DB-A302-7E2B3A579580}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92874DEE-B274-42DB-A302-7E2B3A579580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32EE3B71-8064-4434-A76A-D460FD48DEA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
