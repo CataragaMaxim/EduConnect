@@ -78,7 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\User\Contact.cs" />
+    <Compile Include="Entities\Categ\Categ.cs" />
     <Compile Include="Entities\User\UserLoginDTO.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="User\Auth\UserAuthAction.cs" />
     <Compile Include="User\Auth\UserAuthResp.cs" />
     <Compile Include="User\Reg\RegDataActionDTO.cs" />
@@ -95,9 +97,20 @@
       <Name>EduConnect.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Content Include="obj\Debug\EduConnect.Domain.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\EduConnect.Domain.dll" />
+    <Content Include="obj\Debug\EduConnect.Domain.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\EduConne.E20412AB.Up2Date" />
+    <None Include="obj\Debug\EduConnect.Domain.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\EduConnect.Domain.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
