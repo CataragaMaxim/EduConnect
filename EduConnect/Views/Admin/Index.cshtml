@@ -15,7 +15,7 @@
                <!-- Informa?ii admin -->
                <div class="col-md-8">
                     <h2 class="mb-3">Bun venit, <strong>@Model.Username</strong></h2>
-                    <p class="mb-2"><strong>Rol:</strong> Admin / @(Convert.ToInt32(Model.Role) >= 1000 ? "Max" : "Nichita / Dorin")</p>
+                    <p class="mb-2"><strong>Rol:</strong> Admin / @(Convert.ToInt32(Model.Role) == 1001 ? "Max" : "Nichita / Dorin")</p>
                     <p class="mb-2"><strong>Email:</strong> @Model.Email</p>
 
                     <hr />

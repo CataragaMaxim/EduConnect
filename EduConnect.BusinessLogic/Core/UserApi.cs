@@ -5,6 +5,7 @@ using EduConnect.Domain.Entities.User.Reg;
 using EduConnect.Domain.Enums;
 using EduConnect.Domain.User.Auth;
 using EduConnect.Domain.User.Reg;
+using EduConnect.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,17 +39,23 @@ namespace EduConnect.BusinessLogic.Core
 
                     if (!string.IsNullOrEmpty(currentPassword) || !string.IsNullOrEmpty(newPassword))
                     {
-                         if (user.Password != currentPassword)
+                         var currentHash = PasswordHelper.HashGen(currentPassword);
+
+                         if (user.Password != currentHash)
                          {
                               return new UserUpdateResp { Success = false, Message = "Parola actuală este greșită." };
                          }
 
-                         if (string.IsNullOrWhiteSpace(newPassword) || newPassword.Length < 8)
+                         if (!string.IsNullOrWhiteSpace(newPassword))
                          {
-                              return new UserUpdateResp { Success = false, Message = "Noua parolă este prea scurtă." };
+                              if (newPassword.Length < 8)
+                              {
+                                   return new UserUpdateResp { Success = false, Message = "Noua parolă este prea scurtă." };
+                              }
+
+                              user.Password = PasswordHelper.HashGen(newPassword);
                          }
 
-                         user.Password = newPassword;
                     }
 
                     if (user.Username != newUsername && db.Users.Any(u => u.Username == newUsername))
@@ -78,18 +85,20 @@ namespace EduConnect.BusinessLogic.Core
           {
                using (var db = new UserContext())
                {
+                    var passwordHash = PasswordHelper.HashGen(auth.Password);
+
                     var user = db.Users.FirstOrDefault(u =>
                         u.Username == auth.Username &&
-                        u.Password == auth.Password
+                        u.Password == passwordHash
                     );
 
                     if (user != null)
                     {
                          user.LastLogin = DateTime.Now;
                          db.SaveChanges();
-
                          return Guid.NewGuid().ToString();
                     }
+
                }
 
                return null;
@@ -120,14 +129,17 @@ namespace EduConnect.BusinessLogic.Core
                     };
                }
 
+               var passwordHash = PasswordHelper.HashGen(local.Password);
+
                var u_data = new UDbTable()
                {
                     Username = local.Username,
-                    Password = local.Password,
+                    Password = passwordHash,
                     Email = local.Email,
                     LastLogin = DateTime.Now,
                     Level = URole.User,
                };
+
 
                using (var db = new UserContext())
                {

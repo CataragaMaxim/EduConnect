@@ -38,7 +38,7 @@ namespace EduConnect.Controllers
           public ActionResult Logout()
           {
                _session.ClearUserSession();
-               return RedirectToAction("Index", "Auth");
+               return RedirectToAction("Index", "Home");
           }
 
           [HttpPost]

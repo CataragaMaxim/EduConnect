@@ -1,5 +1,6 @@
 ﻿using EduConnect.BusinessLogic.DBModel;
 using EduConnect.Domain.Entities.User;
+using EduConnect.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ namespace EduConnect.BusinessLogic.Core
                }
           }
 
+
+
           protected bool UpdateUserAction(UDbTable updatedUser)
           {
                using (var db = new UserContext())
@@ -37,13 +40,18 @@ namespace EduConnect.BusinessLogic.Core
 
                     user.Username = updatedUser.Username;
                     user.Email = updatedUser.Email;
-                    user.Password = updatedUser.Password;
                     user.Level = updatedUser.Level;
+
+                    if (!string.IsNullOrWhiteSpace(updatedUser.Password))
+                    {
+                         user.Password = PasswordHelper.HashGen(updatedUser.Password);
+                    }
 
                     db.SaveChanges();
                     return true;
                }
           }
+
 
           protected bool DeleteUserAction(int id)
           {

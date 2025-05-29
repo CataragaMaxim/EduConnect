@@ -28,13 +28,32 @@ namespace EduConnect.Controllers
                     return RedirectToAction("Index", "Home");
                }
 
+               string profileImageUrl = Url.Content("~/Images/team/default.jpg"); // fallback
+               int userLevel = Convert.ToInt32(Session["UserLevel"]);
+
+               switch (userLevel)
+               {
+                    case 1000:
+                         profileImageUrl = Url.Content("~/Images/team/img-1.jpg");
+                         break;
+                    case 1001:
+                         profileImageUrl = Url.Content("~/Images/team/img-1.jpg");
+                         break;
+                    case 1002:
+                         profileImageUrl = Url.Content("~/Images/team/img-2.jpg");
+                         break;
+                    case 1003:
+                         profileImageUrl = Url.Content("~/Images/team/img-3.jpg");
+                         break;
+               }
+
                var session = new SessionBL(Session, Request, Response);
                var viewModel = new AdminProfileVM
                {
                     Username = Session["Username"] as string,
-                    Role = Session["UserLevel"].ToString(),
+                    Role = userLevel.ToString(),
                     Email = session.GetUserEmail(),
-                    ProfileImageUrl = Url.Content("~/Images/team/img-1.jpg")
+                    ProfileImageUrl = profileImageUrl
                };
 
                return View(viewModel);
