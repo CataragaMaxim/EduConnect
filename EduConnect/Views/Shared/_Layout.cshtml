@@ -27,31 +27,35 @@
 </head>
 
 <body>
-     <!-- Header -->
-     <header class="sticky">
-          @Html.Partial("_Header")
-     </header>
+    <!-- Header -->
+    <header class="sticky">
+        @Html.Partial("_Header")
+    </header>
 
-     <!-- Main view -->
-     @RenderBody()
+    <!-- Main view -->
+    @RenderBody()
 
-     <!-- Footer -->
-     <footer class="bg-dark footer text-white">
-          @Html.Partial("_Footer")
-     </footer>
+   
+
+    
+    <!-- Footer -->
+    <footer class="bg-dark footer text-white">
+        @Html.Partial("_Footer")
+
+    </footer>
 
 
-     <!-- javascript -->
-     @Scripts.Render("~/bundles/jquery/js")
-     @Scripts.Render("~/bundles/bootstrap/js")
-     @Scripts.Render("~/bundles/scrollspy/js")
+    <!-- javascript -->
+    @Scripts.Render("~/bundles/jquery/js")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/scrollspy/js")
 
-     <!-- counter js -->
-     @Scripts.Render("~/bundles/counter/js")
+    <!-- counter js -->
+    @Scripts.Render("~/bundles/counter/js")
 
-     <!-- custom js -->
-     @Scripts.Render("~/bundles/app/js")
+    <!-- custom js -->
+    @Scripts.Render("~/bundles/app/js")
 
-     @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

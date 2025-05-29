@@ -1,0 +1,42 @@
+﻿@model EduConnect.ViewModel.PlaylistViewModel
+
+@{
+    ViewBag.Title = "Creează Playlist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Creează un playlist</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Nume playlist</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Descriere</label>
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <h4>Videoclipuri</h4>
+
+     for (int i = 0; i < Model.Videos.Count; i++)
+    {
+        <div class="border rounded p-3 mb-3">
+            <div class="form-group">
+                <label>Titlu</label>
+                @Html.TextBoxFor(m => m.Videos[i].Title, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Descriere</label>
+                @Html.TextBoxFor(m => m.Videos[i].Description, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Link YouTube</label>
+                @Html.TextBoxFor(m => m.Videos[i].YouTubeUrl, new { @class = "form-control" })
+            </div>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-success">Salvează playlist</button>
+}
