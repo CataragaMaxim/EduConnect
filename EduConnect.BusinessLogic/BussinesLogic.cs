@@ -26,5 +26,10 @@ namespace EduConnect.BusinessLogic
           {
                return new UserBL();
           }
-     }
+
+            public IThread GetThreadBL()
+            {
+                return new ThreadBL();
+            }
+    }
 }

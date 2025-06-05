@@ -1,0 +1,36 @@
+@model IEnumerable<EduConnect.Domain.Entities.Thread.UDbThreads>
+
+@{
+    ViewBag.Title = "Threads din categoria " + ViewBag.SelectedCategory;
+    var category = ViewBag.SelectedCategory as string ?? "All";
+}
+
+<h2>Threaduri din categoria: @category</h2>
+
+<<!-- Buton pentru a crea un thread nou in aceasta categorie -->
+<p>
+    <a href="@Url.Action("Create", "Thread", new { category = category })" class="btn btn-success">
+        Adauga un thread nou in categoria: @category
+    </a>
+</p>
+
+
+@if (!Model.Any())
+{
+    <p>Nu exista threaduri in aceasta categorie.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var thread in Model)
+        {
+            <li class="list-group-item">
+                <h5>@thread.Title <small class="text-muted">by @thread.Author</small></h5>
+                <p>@thread.Description</p>
+            </li>
+        }
+    </ul>
+}
+
+
+<hr />

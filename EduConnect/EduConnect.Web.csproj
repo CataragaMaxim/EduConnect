@@ -486,6 +486,7 @@
     <Compile Include="Controllers\CategController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ThreadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -500,6 +501,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\DataBase.cshtml" />
     <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\EditThread.cshtml" />
     <None Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -525,6 +527,8 @@
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\Shared\_AdminFooter.cshtml" />
     <Content Include="Views\Shared\_AdminHeader.cshtml" />
+    <Content Include="Views\Categ\CategThreads.cshtml" />
+    <Content Include="Views\Thread\Create.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
@@ -538,6 +542,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EduConnect.BusinessLogic\EduConnect.BusinessLogic.csproj">
       <Project>{b8ed1020-6cf3-4574-b607-24f9df8a4871}</Project>
       <Name>EduConnect.BusinessLogic</Name>
@@ -546,9 +553,6 @@
       <Project>{92874dee-b274-42db-a302-7e2b3a579580}</Project>
       <Name>EduConnect.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
