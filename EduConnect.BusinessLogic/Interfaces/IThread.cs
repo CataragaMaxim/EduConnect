@@ -14,5 +14,10 @@ namespace EduConnect.BusinessLogic.Interfaces
         UDbThreads GetThreadById(int id);
         IEnumerable<UDbThreads> GetAllThreads();
         AddThreadResp AddThread(AddThreadDTO local);
-    }
+        void AddComment(int threadId, string author, string content);
+        List<UDbComment> GetCommentsByThreadId(int threadId);
+          void UpdateThread(UDbThreads thread);
+          void DeleteThread(int id);
+
+     }
 }

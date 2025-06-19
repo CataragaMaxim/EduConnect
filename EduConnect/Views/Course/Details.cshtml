@@ -1,0 +1,44 @@
+@model EduConnect.Domain.Entities.Courses.UDbCourse
+@{
+     var username = Session["Username"] as string;
+     var level = Session["UserLevel"] != null ? (int)Session["UserLevel"] : 0;
+     bool canEdit = Model.CreatedBy == username || level >= (int)EduConnect.Domain.Enums.URole.Moderator;
+     Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+<h2>@Model.Title</h2>
+<p>@Model.Description</p>
+<p><strong>Category:</strong> @Model.Category | <strong>Access:</strong> @Model.AccessLevel</p>
+
+<hr />
+<h3>Playlist:</h3>
+@if (Model.VideoItems != null && Model.VideoItems.Any())
+{
+     foreach (var v in Model.VideoItems.OrderBy(x => x.Order))
+     {
+          <div class="mb-3">
+               <strong>@v.Order. @v.Title</strong><br />
+               @if (v.VideoUrl.Contains("youtube.com") || v.VideoUrl.Contains("youtu.be"))
+               {
+                    var vid = v.VideoUrl.Contains("watch?v=")
+                        ? v.VideoUrl.Split(new[] { "watch?v=" }, StringSplitOptions.None)[1]
+                        : v.VideoUrl.Split('/').Last();
+                    <iframe class="embed-responsive-item" style="width:100%; height:360px;"
+                            src="https://www.youtube.com/embed/@vid" allowfullscreen></iframe>
+               }
+               else
+               {
+                    <video controls width="100%"><source src="@Url.Content(v.VideoUrl)" type="video/mp4" />Your browser doesn't support video.</video>
+               }
+          </div>
+     }
+}
+else
+{
+     <p>No videos added to this course yet.</p>
+}
+
+@if (canEdit)
+{
+     <a href="@Url.Action("Edit", "Course", new {id = Model.Id})" class="btn btn-warning">Edit</a>
+     <a href="@Url.Action("Delete", "Course", new {id = Model.Id})" class="btn btn-danger">Delete</a>
+}

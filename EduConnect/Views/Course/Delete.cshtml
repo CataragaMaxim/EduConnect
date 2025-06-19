@@ -1,0 +1,22 @@
+@model EduConnect.Domain.Entities.Courses.UDbCourse
+
+@{
+     ViewBag.Title = "Confirmare stergere curs";
+     Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+<h2>Esti sigur ca vrei sa stergi cursul?</h2>
+
+<div class="alert alert-danger">
+     <strong>@Model.Title</strong><br />
+     @Model.Description
+</div>
+
+@using (Html.BeginForm("Delete", "Course", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+     @Html.HiddenFor(m => m.Id)
+
+     <button type="submit" class="btn btn-danger">Sterge</button>
+     <a href="@Url.Action("Details", "Course", new { id = Model.Id })" class="btn btn-secondary">Anuleaza</a>
+}

@@ -8,12 +8,14 @@
      <meta content="Un sait gratuit pentru studiu usor si efectiv" name="description" />
      <meta content="Coderthemes" name="author" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                                        
+
      <!-- App favicon -->
      <link rel="shortcut icon" href="~/Images/favicon.ico">
 
      <!-- Bootstrap core CSS -->
      @Styles.Render("~/bundles/bootstrap/css")
+
+     @Styles.Render("~/bundles/loader/css")
 
      <!--Material Icon -->
      @Styles.Render("~/bundles/materialdesignicons/css")
@@ -51,6 +53,13 @@
      <!-- custom js -->
      @Scripts.Render("~/bundles/app/js")
 
+     @Scripts.Render("~/bundles/loader/js")
+
      @RenderSection("scripts", required: false)
+     <div id="loader-overlay">
+          <div class="loader-container">
+               <img src="@Url.Content("~/Images/loader.gif")" alt="Se incarca..." />
+          </div>
+     </div>
 </body>
 </html>

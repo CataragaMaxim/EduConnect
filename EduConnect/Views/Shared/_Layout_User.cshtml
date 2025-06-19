@@ -14,8 +14,8 @@
 
      <!-- Bootstrap core CSS -->
      @Styles.Render("~/bundles/bootstrap/css")
-
      @Styles.Render("~/bundles/loader/css")
+
 
      <!--Material Icon -->
      @Styles.Render("~/bundles/materialdesignicons/css")
@@ -29,8 +29,18 @@
 </head>
 
 <body>
+     <!-- Header -->
+     <header class="sticky nav-sticky">
+          @Html.Partial("_UserHeader")
+     </header>
+
      <!-- Main view -->
      @RenderBody()
+
+     <!-- Footer -->
+     <footer class="bg-dark footer text-white">
+          @Html.Partial("_Footer")
+     </footer>
 
      <!-- javascript -->
      @Scripts.Render("~/bundles/jquery/js")
@@ -42,14 +52,16 @@
 
      <!-- custom js -->
      @Scripts.Render("~/bundles/app/js")
-
      @Scripts.Render("~/bundles/loader/js")
 
+
      @RenderSection("scripts", required: false)
+     <!-- Loader -->
      <div id="loader-overlay">
           <div class="loader-container">
                <img src="@Url.Content("~/Images/loader.gif")" alt="Se incarca..." />
           </div>
      </div>
+
 </body>
 </html>

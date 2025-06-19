@@ -59,7 +59,7 @@ namespace EduConnect.Controllers
                     return RedirectToAction("Index", "Home");
                }
 
-               ModelState.AddModelError("", "Autentificare eșuata. Verifica datele.");
+               ModelState.AddModelError("", "Autentificare esuata. Verifica datele.");
                return View("Index", data);
           }
      }

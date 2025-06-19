@@ -1,0 +1,15 @@
+@model EduConnect.Domain.Entities.Courses.UDbCourse
+@{
+     Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+<h2>Delete Course?</h2>
+<div class="alert alert-danger">
+     <strong>@Model.Title</strong><br />@Model.Description
+</div>
+@using (Html.BeginForm("DeleteConfirmed", "Course", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+     @Html.HiddenFor(m => m.Id)
+     <button type="submit" class="btn btn-danger">Yes, Delete</button>
+     <a href="@Url.Action("Details", "Course", new { id = Model.Id })" class="btn btn-secondary">Cancel</a>
+}

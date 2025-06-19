@@ -1,0 +1,41 @@
+@model IEnumerable<EduConnect.Domain.Entities.Courses.UDbCourse>
+
+@{
+     ViewBag.Title = "Toate Cursurile";
+     Layout = "~/Views/Shared/_Layout_User.cshtml"; // sau alt layout pe care-l folose?ti
+}
+
+<h2>Toate Cursurile</h2>
+
+<a href="@Url.Action("Create", "Course")" class="btn btn-primary mb-3">Adauga curs</a>
+
+<table class="table table-bordered">
+     <thead>
+          <tr>
+               <th>Titlu</th>
+               <th>Categorie</th>
+               <th>Acces</th>
+               <th>Creat de</th>
+               <th>Actiuni</th>
+          </tr>
+     </thead>
+     <tbody>
+          @foreach (var course in Model)
+          {
+               <tr>
+                    <td>@course.Title</td>
+                    <td>@course.Category</td>
+                    <td>@course.AccessLevel</td>
+                    <td>@course.CreatedBy</td>
+                    <td>
+                         <a href="@Url.Action("Details", "Course", new { id = course.Id })" class="btn btn-info btn-sm">Vezi</a>
+                         @if (Session["Username"] as string == course.CreatedBy || (Session["UserLevel"] != null && (int)Session["UserLevel"] >= 101))
+                         {
+                              <a href="@Url.Action("Edit", "Course", new { id = course.Id })" class="btn btn-warning btn-sm">Edit</a>
+                              <a href="@Url.Action("Delete", "Course", new { id = course.Id })" class="btn btn-danger btn-sm" onclick="return confirm('Sigur vrei s? ?tergi cursul?');">Sterge</a>
+                         }
+                    </td>
+               </tr>
+          }
+     </tbody>
+</table>

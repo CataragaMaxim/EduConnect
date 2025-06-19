@@ -1,0 +1,94 @@
+@model EduConnect.Domain.Entities.User.AddCourseDTO
+
+@{
+     ViewBag.Title = "Adauga Curs";
+     Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+<h2>Adauga Curs</h2>
+
+@using (Html.BeginForm())
+{
+     @Html.AntiForgeryToken()
+
+     <div class="form-group">
+          @Html.LabelFor(m => m.Title)
+          @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+     </div>
+
+     <div class="form-group">
+          @Html.LabelFor(m => m.Description)
+          @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 4 })
+     </div>
+
+     <div class="form-group">
+          @Html.LabelFor(m => m.Category)
+          @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+     </div>
+
+     <div class="form-group">
+          @Html.LabelFor(m => m.AccessLevel)
+          @Html.DropDownListFor(m => m.AccessLevel, new SelectList(new[] {
+              new { Value = "Public", Text = "Public" },
+              new { Value = "Private", Text = "Privat" },
+              new { Value = "Restricted", Text = "Utilizatori selectati" }
+          }, "Value", "Text"), "Selecteaza...", new { @class = "form-control" })
+     </div>
+
+     <div class="form-group">
+          @Html.LabelFor(m => m.AllowedUsers)
+          @Html.TextBoxFor(m => m.AllowedUsers, new { @class = "form-control", placeholder = "ex: user1,user2" })
+     </div>
+
+     <h4>Videouri</h4>
+     <div id="videoContainer">
+          <!-- Video form group template -->
+          <div class="video-item border p-2 mb-2">
+               <div class="form-group">
+                    <label>Titlu Video</label>
+                    <input type="text" name="Videos[0].Title" class="form-control" />
+               </div>
+               <div class="form-group">
+                    <label>Descriere Video</label>
+                    <textarea name="Videos[0].Description" class="form-control"></textarea>
+               </div>
+               <div class="form-group">
+                    <label>Video URL</label>
+                    <input type="text" name="Videos[0].VideoUrl" class="form-control" />
+               </div>
+               <input type="hidden" name="Videos[0].Order" value="1" />
+          </div>
+     </div>
+
+     <button type="button" class="btn btn-secondary mb-3" id="addVideo">Adauga Video</button>
+
+     <button type="submit" class="btn btn-success">Salveaza</button>
+}
+
+@section Scripts {
+     <script>
+        let videoIndex = 1;
+        document.getElementById('addVideo').addEventListener('click', function () {
+            const container = document.getElementById('videoContainer');
+            const videoItem = document.createElement('div');
+            videoItem.className = "video-item border p-2 mb-2";
+            videoItem.innerHTML = `
+                <div class="form-group">
+                    <label>Titlu Video</label>
+                    <input type="text" name="Videos[${videoIndex}].Title" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Descriere Video</label>
+                    <textarea name="Videos[${videoIndex}].Description" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Video URL</label>
+                    <input type="text" name="Videos[${videoIndex}].VideoUrl" class="form-control" />
+                </div>
+                <input type="hidden" name="Videos[${videoIndex}].Order" value="${videoIndex + 1}" />
+            `;
+            container.appendChild(videoItem);
+            videoIndex++;
+        });
+     </script>
+}

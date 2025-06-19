@@ -51,18 +51,23 @@
                               {
                                    <td>@(prop.GetValue(item) ?? "-")</td>
                               }
-                              <td>
-                                   @if (typeName == "UDbTable")
-                                   {
-                                        @Html.ActionLink("Edit", "EditUser", new { id = idValue }, new { @class = "btn btn-sm btn-primary" })
-                                        @Html.ActionLink("Delete", "DeleteUser", new { id = idValue }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Esti sigur ca vrei sa stergi acest utilizator?');" })
-                                   }
-                                   else if (typeName == "UDbThreads")
-                                   {
-                                        @Html.ActionLink("Edit", "EditThread", new { id = idValue }, new { @class = "btn btn-sm btn-primary" })
-                                        @Html.ActionLink("Delete", "DeleteThread", new { id = idValue }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Esti sigur ca vrei sa stergi acest thread?');" })
-                                   }
-                              </td>
+                         <td>
+                              @if (typeName == "UDbTable")
+                              {
+                                   @Html.ActionLink("Edit", "EditUser", new { id = idValue }, new { @class = "btn btn-sm btn-primary" })
+                                   @Html.ActionLink("Delete", "DeleteUser", new { id = idValue }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Esti sigur ca vrei sa stergi acest utilizator?');" })
+                              }
+                              else if (typeName == "UDbThreads")
+                              {
+                                   @Html.ActionLink("Edit", "EditThread", new { id = idValue }, new { @class = "btn btn-sm btn-primary" })
+                                   @Html.ActionLink("Delete", "DeleteThread", new { id = idValue }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Esti sigur ca vrei sa stergi acest thread?');" })
+                              }
+                              else if (typeName == "UDbCourse")
+                              {
+                                   @Html.ActionLink("Edit", "EditThread", new { id = idValue }, new { @class = "btn btn-sm btn-primary" })
+                                   @Html.ActionLink("Delete", "DeleteThread", new { id = idValue }, new { @class = "btn btn-sm btn-danger", onclick = "return confirm('Esti sigur ca vrei sa stergi acest thread?');" })
+                              }
+                         </td>
                          </tr>
                     }
                </tbody>

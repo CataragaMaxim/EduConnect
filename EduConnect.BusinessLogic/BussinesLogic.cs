@@ -31,5 +31,11 @@ namespace EduConnect.BusinessLogic
             {
                 return new ThreadBL();
             }
-    }
+
+          public ICourse GetCourseBL()
+          {
+               return new CourseBL();
+          }
+
+     }
 }

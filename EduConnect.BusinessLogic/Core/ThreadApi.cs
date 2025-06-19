@@ -46,5 +46,62 @@
                     return db.Threads.ToList();
                 }
             }
-        }
-    }
+
+          public void AddCommentAction(int threadId, string author, string content)
+          {
+               using (var db = new UserContext())
+               {
+                    var comment = new UDbComment
+                    {
+                         ThreadId = threadId,
+                         Author = author,
+                         Content = content
+                    };
+
+                    db.Comments.Add(comment);
+                    db.SaveChanges();
+               }
+          }
+
+          public List<UDbComment> GetCommentsByThreadIdAction(int threadId)
+          {
+               using (var db = new UserContext())
+               {
+                    return db.Comments
+                             .Where(c => c.ThreadId == threadId)
+                             .OrderByDescending(c => c.CreatedAt)
+                             .ToList();
+               }
+          }
+
+          public void UpdateThreadAction(UDbThreads thread)
+          {
+               using (var db = new UserContext())
+               {
+                    var existing = db.Threads.FirstOrDefault(t => t.Id == thread.Id);
+                    if (existing != null)
+                    {
+                         existing.Title = thread.Title;
+                         existing.Description = thread.Description;
+                         existing.Category = thread.Category;
+
+                         db.SaveChanges();
+                    }
+               }
+          }
+
+          public void DeleteThreadAction(int id)
+          {
+               using (var db = new UserContext())
+               {
+                    var thread = db.Threads.FirstOrDefault(t => t.Id == id);
+                    if (thread != null)
+                    {
+                         db.Threads.Remove(thread);
+                         db.SaveChanges();
+                    }
+               }
+          }
+
+     }
+}

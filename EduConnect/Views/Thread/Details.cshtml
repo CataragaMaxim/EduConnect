@@ -1,0 +1,52 @@
+@{
+     ViewBag.Title = "Thread Details";
+     Layout = "~/Views/Shared/_Layout_User.cshtml";
+     var thread = ViewBag.Thread as EduConnect.Domain.Entities.Thread.UDbThreads;
+     var comments = ViewBag.Comments as List<EduConnect.Domain.Entities.Thread.UDbComment>;
+}
+
+<h2>@thread.Title</h2>
+<p><strong>Autor:</strong> @thread.Author</p>
+<p><strong>Categorie:</strong> @thread.Category</p>
+<p>@thread.Description</p>
+
+@if (Session["Username"] as string == ViewBag.Thread.Author || Session["Role"] as string == "Moderator")
+{
+     <a href="@Url.Action("Edit", "Thread", new { id = ViewBag.Thread.Id })" class="btn btn-warning">Editeaza</a>
+     <a href="@Url.Action("Delete", "Thread", new { id = ViewBag.Thread.Id })" class="btn btn-danger" onclick="return confirm('Sigur vrei sa stergi acest thread?');">
+          Sterge
+     </a>
+}
+
+<hr />
+<h4>Comentarii:</h4>
+
+@if (comments != null && comments.Any())
+{
+     <ul class="list-group">
+          @foreach (var comment in comments)
+          {
+               <li class="list-group-item">
+                    <strong>@comment.Author</strong> - @comment.CreatedAt.ToString("g")
+                    <p>@comment.Content</p>
+               </li>
+          }
+     </ul>
+}
+else
+{
+     <p>Nu sunt comentarii.</p>
+}
+
+<hr />
+<h4>Adauga un comentariu:</h4>
+@using (Html.BeginForm("AddComment", "Thread", FormMethod.Post))
+{
+     @Html.AntiForgeryToken()
+     @Html.Hidden("threadId", thread.Id)
+
+     <div class="form-group">
+          <textarea name="content" class="form-control" rows="3" required></textarea>
+     </div>
+     <button type="submit" class="btn btn-primary">Trimite</button>
+}

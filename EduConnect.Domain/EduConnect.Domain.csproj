@@ -46,10 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Categ\Categ.cs" />
+    <Compile Include="Entities\Courses\UDbCourse.cs" />
+    <Compile Include="Entities\Courses\VideoItem.cs" />
+    <Compile Include="Entities\Thread\UDbComment.cs" />
+    <Compile Include="Entities\User\AddCourseDTO.cs" />
     <Compile Include="Entities\User\AddThreadDTO.cs" />
     <Compile Include="Entities\User\AddThreadResp.cs" />
     <Compile Include="Entities\User\UserUpdateResp.cs" />
     <Compile Include="Entities\Thread\UDbThreads.cs" />
+    <Compile Include="Entities\User\VideoItemDTO.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Entities\User\Auth\UserAuthAction.cs" />
     <Compile Include="Entities\User\Auth\UserAuthResp.cs" />

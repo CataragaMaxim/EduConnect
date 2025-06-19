@@ -78,7 +78,7 @@ namespace EduConnect.Controllers
             {
                 newThread.Category = categ;
                 _threadBL.AddThread(newThread);
-                ModelState.Clear(); // curăță formularul după submit
+                ModelState.Clear(); // curata formularul dupa submit
             }
 
             var threads = _threadBL.GetAllThreads().Where(t => t.Category.Equals(categ, StringComparison.OrdinalIgnoreCase));

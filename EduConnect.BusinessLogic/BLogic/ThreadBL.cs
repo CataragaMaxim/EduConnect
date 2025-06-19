@@ -26,5 +26,26 @@ namespace EduConnect.BusinessLogic.BLogic
         {
             return GetThreadByIdAction(id);
         }
-    }
+  
+        public void AddComment(int threadId, string author, string content)
+        {
+            AddCommentAction(threadId, author, content);
+        }
+
+        public List<UDbComment> GetCommentsByThreadId(int threadId)
+        {
+             return GetCommentsByThreadIdAction(threadId);
+        }
+
+        public void UpdateThread(UDbThreads thread)
+          {
+               UpdateThreadAction(thread);
+          }
+
+          public void DeleteThread(int id)
+          {
+               DeleteThreadAction(id);
+          }
+
+     }
 }
