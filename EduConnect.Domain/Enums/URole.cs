@@ -11,6 +11,9 @@ namespace EduConnect.Domain.Enums
         Guest = 0,
         User = 1,
         Moderator = 101,
-        Admin = 1000
-    }
+        Admin = 1000,
+        AdminMax = 1001,
+        AdminNic = 1002,
+        AdminDor = 1003
+     }
 }

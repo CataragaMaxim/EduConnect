@@ -1,5 +1,6 @@
 ﻿using EduConnect.BusinessLogic.Core;
 using EduConnect.BusinessLogic.Interfaces;
+using EduConnect.Domain.Entities.Thread;
 using EduConnect.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,24 @@ namespace EduConnect.BusinessLogic.BLogic
           {
                return DeleteUserAction(id);
           }
-          //public IEnumerable<Thread> GetAllThreads()
-          //{
-          //     return GetAllThreadsAction();
-          //}
-     }
+        public IEnumerable<UDbThreads> GetAllThreads()
+        {
+            return GetAllThreadsAction();
+        }
+        public UDbThreads GetThreadById(int id)
+        {
+            return GetThreadByIdAction(id);
+        }
+
+        public bool UpdateThread(UDbThreads thread)
+        {
+            return UpdateThreadAction(thread);
+        }
+
+        public bool DeleteThread(int id)
+        {
+            return DeleteThreadAction(id);
+        }
+
+    }
 }

@@ -68,12 +68,12 @@ namespace EduConnect.Controllers
                          return RedirectToAction("Index", "Home");
                     }
 
-                    ModelState.AddModelError("", "Înregistrarea a fost reușită, dar autentificarea a eșuat.");
+                    ModelState.AddModelError("", "inregistrarea a fost reusita, dar autentificarea a esuat.");
                     return View("Index", data);
                }
 
-               // Înregistrare eșuată
-               ModelState.AddModelError("", resp.Error ?? "Înregistrare eșuată.");
+               // inregistrare esuata
+               ModelState.AddModelError("", resp.Error ?? "inregistrare esuata.");
                return View("Index", data);
           }
      }

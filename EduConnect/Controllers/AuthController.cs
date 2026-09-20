@@ -38,7 +38,7 @@ namespace EduConnect.Controllers
           public ActionResult Logout()
           {
                _session.ClearUserSession();
-               return RedirectToAction("Index", "Auth");
+               return RedirectToAction("Index", "Home");
           }
 
           [HttpPost]
@@ -59,7 +59,7 @@ namespace EduConnect.Controllers
                     return RedirectToAction("Index", "Home");
                }
 
-               ModelState.AddModelError("", "Autentificare eșuată. Verifică datele.");
+               ModelState.AddModelError("", "Autentificare esuata. Verifica datele.");
                return View("Index", data);
           }
      }

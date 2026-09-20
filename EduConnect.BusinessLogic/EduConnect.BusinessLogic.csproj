@@ -67,19 +67,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLogic\CourseBL.cs" />
+    <Compile Include="BLogic\ThreadBL.cs" />
     <Compile Include="BLogic\AdminBL.cs" />
     <Compile Include="BLogic\UserBL.cs" />
     <Compile Include="BussinesLogic.cs" />
     <Compile Include="CategBL\CategBL.cs" />
     <Compile Include="Core\AdminApi.cs" />
     <Compile Include="Core\CategApi.cs" />
+    <Compile Include="Core\CourseApi.cs" />
+    <Compile Include="Core\ThreadApi.cs" />
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\ThreadContext.cs" />
     <Compile Include="DBModel\Contact.cs" />
     <Compile Include="DBModel\UserContext.cs" />
     <Compile Include="Interfaces\IAdmin.cs" />
+    <Compile Include="Interfaces\ICourse.cs" />
     <Compile Include="Interfaces\ISession.cs" />
-    <Compile Include="Interfaces\IThreadPost.cs" />
+    <Compile Include="Interfaces\IThread.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Migrations\202505191417254_InitialCreate.cs" />
     <Compile Include="Migrations\202505191417254_InitialCreate.Designer.cs">
@@ -108,6 +113,21 @@
     <Compile Include="Migrations\202505271809231_FixContactTableName.cs" />
     <Compile Include="Migrations\202505271809231_FixContactTableName.Designer.cs">
       <DependentUpon>202505271809231_FixContactTableName.cs</DependentUpon>
+    <Compile Include="Migrations\202505291302559_Init.cs" />
+    <Compile Include="Migrations\202505291302559_Init.Designer.cs">
+      <DependentUpon>202505291302559_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506190818450_AddCommentsSupport.cs" />
+    <Compile Include="Migrations\202506190818450_AddCommentsSupport.Designer.cs">
+      <DependentUpon>202506190818450_AddCommentsSupport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506190901196_AddCoursesTable.cs" />
+    <Compile Include="Migrations\202506190901196_AddCoursesTable.Designer.cs">
+      <DependentUpon>202506190901196_AddCoursesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506190944391_AddCoursesTable1.cs" />
+    <Compile Include="Migrations\202506190944391_AddCoursesTable1.Designer.cs">
+      <DependentUpon>202506190944391_AddCoursesTable1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +172,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202505271809231_FixContactTableName.resx">
       <DependentUpon>202505271809231_FixContactTableName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202505291302559_Init.resx">
+      <DependentUpon>202505291302559_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506190818450_AddCommentsSupport.resx">
+      <DependentUpon>202506190818450_AddCommentsSupport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506190901196_AddCoursesTable.resx">
+      <DependentUpon>202506190901196_AddCoursesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506190944391_AddCoursesTable1.resx">
+      <DependentUpon>202506190944391_AddCoursesTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

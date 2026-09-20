@@ -331,6 +331,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\loader.css" />
     <Content Include="Content\materialdesignicons.min.css" />
     <Content Include="Content\pe-icon-7-stroke.css" />
     <Content Include="Content\style.css" />
@@ -397,6 +398,7 @@
     <Content Include="Images\features\img-1.png" />
     <Content Include="Images\features\img-2.png" />
     <Content Include="Images\home-img.png" />
+    <Content Include="Images\loader.gif" />
     <Content Include="Images\logo-dark.png" />
     <Content Include="Images\logo-light.png" />
     <Content Include="Images\team\img-1.jpg" />
@@ -474,6 +476,7 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\loader.js" />
     <Content Include="Scripts\scrollspy.min.js" />
     <Content Include="Views\Categ\Index.cshtml" />
     <Content Include="Web.config" />
@@ -484,8 +487,11 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\CategController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ThreadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -493,6 +499,7 @@
     <Compile Include="Models\Admin\AdminProfileVM.cs" />
     <Compile Include="Models\Admin\EditUserVM.cs" />
     <Compile Include="Models\Auth\UserAuthData.cs" />
+    <Compile Include="Models\ContactVm.cs" />
     <Compile Include="Models\Reg\UserRegData.cs" />
     <Compile Include="Models\UserProfileVM.cs" />
     <Compile Include="Models\UserSettingsVM.cs" />
@@ -500,6 +507,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\DataBase.cshtml" />
     <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\EditThread.cshtml" />
     <None Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -515,16 +523,25 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Log.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
-    <Content Include="Views\Categ\Index.cshtml" />
     <Content Include="Views\Shared\_Categ.cshtml" />
-    <Content Include="Views\Categ\ViewCateg.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Categ\ViewCateg.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Settings.cshtml" />
     <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\Shared\_AdminFooter.cshtml" />
     <Content Include="Views\Shared\_AdminHeader.cshtml" />
+    <Content Include="Views\Categ\CategThreads.cshtml" />
+    <Content Include="Views\Thread\Create.cshtml" />
+    <Content Include="Views\Shared\_UserHeader.cshtml" />
+    <Content Include="Views\Shared\_Layout_User.cshtml" />
+    <Content Include="Views\Thread\Details.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Thread\Edit.cshtml" />
+    <Content Include="Views\Thread\Delete.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
@@ -538,6 +555,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EduConnect.BusinessLogic\EduConnect.BusinessLogic.csproj">
       <Project>{b8ed1020-6cf3-4574-b607-24f9df8a4871}</Project>
       <Name>EduConnect.BusinessLogic</Name>
@@ -546,9 +566,6 @@
       <Project>{92874dee-b274-42db-a302-7e2b3a579580}</Project>
       <Name>EduConnect.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

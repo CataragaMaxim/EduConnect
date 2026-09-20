@@ -68,7 +68,7 @@
                             <i class="pe-7s-map-marker h2 text-primary"></i>
                         </div>
                         <h4>Address</h4>
-                        <p class="text-muted mb-0">Strada Studenților 7, MD-2012, Chișinău, Moldova</p>
+                        <p class="text-muted mb-0">Strada Studentilor 7, MD-2012, Chisinau, Moldova</p>
 
                     </div>
                 </div>
@@ -96,6 +96,8 @@
                                     <label for="Name">Nume</label>
                                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Introduceți numele dvs..." })
                                     @Html.ValidationMessageFor(m => m.Name)
+                                    <label for="name">Nume</label>
+                                    <input name="name" id="name" type="text" class="form-control" placeholder="Introduceti numele dvs...">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -103,6 +105,8 @@
                                     <label for="Email">Adresa de e-mail</label>
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Introduceți adresa dvs. de e-mail..." })
                                     @Html.ValidationMessageFor(m => m.Email)
+                                    <label for="email">Adresa de e-mail</label>
+                                    <input name="email" id="email" type="email" class="form-control" placeholder="Introdceti adresa dvs. de e-mail...">
                                 </div>
                             </div>
                         </div>
@@ -112,6 +116,8 @@
                                 <div class="form-group">
                                     <label for="Subiect">Subiect</label>
                                     @Html.TextBox("Subiect", null, new { @class = "form-control", placeholder = "Introduceți subiectul..." })
+                                    <label for="subject">Subiect</label>
+                                    <input name="subject" id="subject" type="text" class="form-control" placeholder="Introduceti subiectul...">
                                 </div>
                             </div>
                         </div>
@@ -122,6 +128,8 @@
                                     <label for="Message">Mesaj</label>
                                     @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "Introduceți mesajul dvs...", rows = 4 })
                                     @Html.ValidationMessageFor(m => m.Message)
+                                    <label for="comments">Mesaj</label>
+                                    <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Introdceti mesajul dvs..."></textarea>
                                 </div>
                             </div>
                         </div>

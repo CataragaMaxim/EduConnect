@@ -13,9 +13,11 @@ namespace EduConnect.Web
 			// Bundle style
 			bundles.Add(new StyleBundle("~/bundles/bootstrap/css").Include(
 				"~/Content/bootstrap.min.css", new CssRewriteUrlTransform()));
+               bundles.Add(new StyleBundle("~/bundles/loader/css").Include(
+                    "~/Content/loader.css", new CssRewriteUrlTransform()));
 
-			// Font Awesome icons style
-			bundles.Add(new StyleBundle("~/bundles/font-awesome/css").Include(
+               // Font Awesome icons style
+               bundles.Add(new StyleBundle("~/bundles/font-awesome/css").Include(
 				"~/Content/font-awesome.min.css", new CssRewriteUrlTransform()));
 
 			bundles.Add(new StyleBundle("~/bundles/materialdesignicons/css").Include(
@@ -34,6 +36,9 @@ namespace EduConnect.Web
                // Boostrap
                bundles.Add(new ScriptBundle("~/bundles/scrollspy/js").Include(
                     "~/Scripts/bootstrap.bundle.min.js"));
+
+               bundles.Add(new ScriptBundle("~/bundles/loader/js").Include(
+                    "~/Scripts/loader.js"));
 
                bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
                     "~/Scripts/jquery.min.js", "~/Scripts/jquery.easing.min.js"));

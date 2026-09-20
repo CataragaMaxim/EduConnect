@@ -10,7 +10,7 @@ namespace EduConnect.Models
           public string Username { get; set; }
           public string Email { get; set; }
 
-          // Schimbare parolă
+          // Schimbare parola
           public string CurrentPassword { get; set; }
           public string NewPassword { get; set; }
 

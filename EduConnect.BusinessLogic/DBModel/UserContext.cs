@@ -1,12 +1,12 @@
-﻿using System;
+﻿using EduConnect.Domain.Entities.Courses;
+using EduConnect.Domain.Entities.Thread;
+using EduConnect.Domain.Entities.User;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EduConnect.Domain.Entities.User;
-using EduConnect.BusinessLogic.DBModel;
-
 
 namespace EduConnect.BusinessLogic.DBModel
 {
@@ -17,6 +17,10 @@ namespace EduConnect.BusinessLogic.DBModel
           }
 
           public virtual DbSet<UDbTable> Users { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-    }
+          public DbSet<Contact> Contacts { get; set; }
+          public virtual DbSet<UDbThreads> Threads { get; set; }
+          public virtual DbSet<UDbComment> Comments { get; set; }
+          public DbSet<UDbCourse> Courses { get; set; }
+          public DbSet<VideoItem> VideoItems { get; set; }
+     }
 }
