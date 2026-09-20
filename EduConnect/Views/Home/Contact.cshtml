@@ -1,5 +1,7 @@
-﻿@model EduConnect.Models.ContactVm
+﻿@model EduConnect.ViewModel.Contact
+
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Contact";
 }
 
@@ -85,51 +87,60 @@
             <div class="col-lg-7">
                 <div class="custom-form bg-white">
                     <div id="message"></div>
-                    <form method="post" action="php/contact.php" name="contact-form" id="contact-form">
+                    @using (Html.BeginForm("Create", "Contact", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
+                                    <label for="Name">Nume</label>
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Introduceți numele dvs..." })
+                                    @Html.ValidationMessageFor(m => m.Name)
                                     <label for="name">Nume</label>
                                     <input name="name" id="name" type="text" class="form-control" placeholder="Introduceti numele dvs...">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
+                                    <label for="Email">Adresa de e-mail</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Introduceți adresa dvs. de e-mail..." })
+                                    @Html.ValidationMessageFor(m => m.Email)
                                     <label for="email">Adresa de e-mail</label>
                                     <input name="email" id="email" type="email" class="form-control" placeholder="Introdceti adresa dvs. de e-mail...">
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
+                                    <label for="Subiect">Subiect</label>
+                                    @Html.TextBox("Subiect", null, new { @class = "form-control", placeholder = "Introduceți subiectul..." })
                                     <label for="subject">Subiect</label>
                                     <input name="subject" id="subject" type="text" class="form-control" placeholder="Introduceti subiectul...">
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
+                                    <label for="Message">Mesaj</label>
+                                    @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "Introduceți mesajul dvs...", rows = 4 })
+                                    @Html.ValidationMessageFor(m => m.Message)
                                     <label for="comments">Mesaj</label>
                                     <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Introdceti mesajul dvs..."></textarea>
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
 
                         <div class="row">
                             <div class="col-lg-12 text-right">
-                                <input type="submit" id="submit" name="send" class="submitBnt btn btn-purple" value="Trimite mesaj">
-                                <div id="simple-msg"></div>
+                                <input type="submit" class="submitBnt btn btn-purple" value="Trimite mesaj" />
                             </div>
                         </div>
-                        <!-- end row -->
-                    </form>
+                    }
+
                 </div>
                 <!-- end custom-form -->
 

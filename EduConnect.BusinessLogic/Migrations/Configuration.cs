@@ -9,7 +9,8 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "EduConnect.BusinessLogic.DBModel.UserContext";
         }
 
         protected override void Seed(EduConnect.BusinessLogic.DBModel.UserContext context)

@@ -1,19 +1,36 @@
-﻿using EduConnect.Models;
-using System.Net;
-using System.Net.Mail;
+﻿using EduConnect.BusinessLogic.DBModel;
+using EduConnect.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
-namespace EduConnect.Controllers
+public class ContactController : Controller
 {
-    public class ContactController : Controller
+    private readonly UserContext context;
+
+    public ContactController()
     {
-        // afiseaza /Contact
-        [HttpGet]
-        public ActionResult Index()
+        context = new UserContext();
+    }
+
+    // GET: Contact
+    public ActionResult Index()
+    {
+        var domainContacts = context.Contacts.ToList();
+
+        var viewModelContacts = domainContacts.Select(c => new Contact
         {
-            return View(new ContactVm());
-        }
+            Name = c.Name,
+            Email = c.Email,
+            Subiect = c.Subiect,
+            Message = c.Message
+        }).ToList();
+
+        return View(viewModelContacts);
+    }
 
         // primeste datele din formular
         [HttpPost, ValidateAntiForgeryToken]
@@ -36,26 +53,27 @@ namespace EduConnect.Controllers
             return View(new ContactVm());   // golim formularul dupa trimitere
         }
 
-        private static SmtpClient GetSmtp()
-        {
-            return new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                Credentials = new NetworkCredential(
-                                        "dorin.buh@gmail.com",   // user
-                                        "tqnptjmvtrvbsxze")      // App Password de 16 caractere
-            };
-        }
+    // GET: Contact/Create
+    public ActionResult Create()
+    {
+        return View(new Contact());
+    }
 
+    // POST: Contact/Create
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> Create(Contact model)
+    {
+        if (ModelState.IsValid)
         /* ----------------- functia privata care trimite efectiv mailul ----------------- */
         private static async Task SendMailAsync(ContactVm m, SmtpClient smtp)
         {
-            string body = $@"De la: {m.Name} ({m.Email}) Subiect: {m.Subject}{m.Message}";
-
-            var mail = new MailMessage
+            var contactEntity = new EduConnect.Domain.Entities.User.Contact
             {
+                Name = model.Name,
+                Email = model.Email,
+                Subiect = model.Subiect,
+                Message = model.Message
                 From = new MailAddress("dorin.buh@gmail.com", "EduConnect"),   // trebuie sa fie IDENTIC cu contul autentificat
                 Subject = $"[Contact] {m.Subject}",
                 Body = body,
@@ -63,7 +81,11 @@ namespace EduConnect.Controllers
             };
             mail.To.Add("buhna.dorin@gmail.com");        // adresa la care vrei sa ajunga mesajele
 
-            await smtp.SendMailAsync(mail);
+            context.Contacts.Add(contactEntity);
+            await context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
+
+        return View(model);
     }
 }

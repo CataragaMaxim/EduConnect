@@ -10,19 +10,17 @@ using System.Threading.Tasks;
 
 namespace EduConnect.BusinessLogic.DBModel
 {
-    class UserContext : DbContext
+    public class UserContext : DbContext
      {
-          public UserContext() :
-               base("name=EduConnect")
+          public UserContext() : base("name=EduConnect")
           {
           }
 
           public virtual DbSet<UDbTable> Users { get; set; }
+          public DbSet<Contact> Contacts { get; set; }
           public virtual DbSet<UDbThreads> Threads { get; set; }
           public virtual DbSet<UDbComment> Comments { get; set; }
           public DbSet<UDbCourse> Courses { get; set; }
           public DbSet<VideoItem> VideoItems { get; set; }
-
-
      }
 }

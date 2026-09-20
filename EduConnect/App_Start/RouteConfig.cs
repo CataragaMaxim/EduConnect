@@ -13,11 +13,22 @@ namespace EduConnect
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Ruta personalizată pentru /about
+            routes.MapRoute(
+                name: "About",
+                url: "about",
+                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
+            );
+
+            // Ruta generală
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
         }
     }
+
 }
